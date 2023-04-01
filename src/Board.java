@@ -78,8 +78,7 @@ public class Board {
 
         for (int i = 0; i < BoardUtility.NUM_TILES; i++) {
             String s = this.gameState.get(i).toString();
-            stringBuilder.append(String.format("%3s", s));
-
+            stringBuilder.append(s);
             if ((i + 1) % 8 == 0) {
                 stringBuilder.append("\n");
             }

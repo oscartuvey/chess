@@ -30,10 +30,6 @@ public class Pawn extends Piece {
                 legalMoves.add(new PawnMove(board, this, newPosition));
             }
 
-//            (BoardUtility.SEVENTH_ROW[this.position] &&
-//                    this.getColour().isWhite()) ||
-//                    BoardUtility.SECOND_ROW[this.position] && !(this.getColour().isWhite())
-
             else if (move == 16  && !board.getSquare(newPosition).isOccupied()) {
 
                 int behindPosition = this.position + (8 * this.getColour().getDirection());
@@ -50,7 +46,6 @@ public class Pawn extends Piece {
                     }
                 }
 
-                System.out.println("test");
             }
             // This is completely wrong
             else if (move == 7 && board.getSquare(newPosition).isOccupied()) {
