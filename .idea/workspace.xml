@@ -5,32 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="90f5d5cd-5717-4fd5-8971-9d9ce02806cb" name="Changes" comment="Most backend classes completed.">
-      <change afterPath="$PROJECT_DIR$/src/MoveFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bishop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BlackPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BlackPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BoardUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardUtility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CaptureMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CaptureMove.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CastleMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CastleMove.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CastleMoveKingSide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CastleMoveKingSide.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CastleMoveQueenSide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CastleMoveQueenSide.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Chess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Colour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Colour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InvalidMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InvalidMove.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/King.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Knight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Move.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OccupiedSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OccupiedSquare.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PawnDoubleMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PawnDoubleMove.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Piece.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Queen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Square.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WhitePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WhitePlayer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +68,7 @@
       <workItem from="1680263916341" duration="594000" />
       <workItem from="1680271376032" duration="596000" />
       <workItem from="1680276592727" duration="558000" />
-      <workItem from="1680283263013" duration="10785000" />
+      <workItem from="1680283263013" duration="11388000" />
     </task>
     <task id="LOCAL-00001" summary="Most backend classes completed.">
       <created>1680168536876</created>
@@ -102,7 +77,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680168536876</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Most backend classes completed.">
+      <created>1680349538400</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1680349538400</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

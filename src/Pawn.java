@@ -30,15 +30,24 @@ public class Pawn extends Piece {
                 legalMoves.add(new PawnMove(board, this, newPosition));
             }
 
-            else if (move == 16  && (BoardUtility.SEVENTH_ROW[this.position] &&
-                    this.getColour().isWhite()) ||
-                    BoardUtility.SECOND_ROW[this.position] && !(this.getColour().isWhite())) {
+//            (BoardUtility.SEVENTH_ROW[this.position] &&
+//                    this.getColour().isWhite()) ||
+//                    BoardUtility.SECOND_ROW[this.position] && !(this.getColour().isWhite())
 
-                int behindPosition = this.position + (this.getColour().getDirection() * 8);
-                // This is the only place which was being added
-                if(board.getSquare(behindPosition).isOccupied() && !board.getSquare(behindPosition).isOccupied()) {
-                    legalMoves.add(new PawnMove(board, this, newPosition));
-                    // Why was this being printed 3 times for each pawn? NOt efficient
+            else if (move == 16  && !board.getSquare(newPosition).isOccupied()) {
+
+                int behindPosition = this.position + (8 * this.getColour().getDirection());
+
+                if (!board.getSquare(behindPosition).isOccupied()) {
+                    if (this.getColour().isWhite() && BoardUtility.SEVENTH_ROW[this.position]) {
+                        // TODO change this to double pawn move
+                        legalMoves.add(new PawnMove(board, this, newPosition));
+                    }
+                    else if (!this.getColour().isWhite() && BoardUtility.SECOND_ROW[this.position]) {
+                        // TODO change this to double pawn move
+                        legalMoves.add(new PawnMove(board, this, newPosition));
+                        // SonarLint suggests making this a method since its repeated a bunch of times, probably a good idea
+                    }
                 }
 
                 System.out.println("test");
