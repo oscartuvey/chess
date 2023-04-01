@@ -13,52 +13,62 @@ public class Pawn extends Piece {
     public List<Move> findLegalMoves(Board board) {
 
         List<Move> legalMoves = new ArrayList<>();
-
         for (int move : POSSIBLE_MOVES) {
 
             int newPosition = this.position + (move * this.getColour().getDirection());
 
-            if(!isValidMove(newPosition)) {
+            if (!isValidMove(newPosition)) { // THis should be preventing this from happen
+                 continue;
+            }
+
+            if (isFirstColumnExclusion(this.position, move) || isEighthColumnExclusion(this.position, move)) {
                 continue;
             }
-            // Some of this is wrong (#11 of the video)
-            if (move == 8 && !board.getSquare(newPosition).isOccupied()) { // This code smell will go when other possible move vectors added
 
-
+            if (move == 8 && !board.getSquare(newPosition).isOccupied()) {
                 //TODO promotions
                 legalMoves.add(new PawnMove(board, this, newPosition));
             }
-            // This needs to be redone
-            else if (move == 16 && this.isFirstMove() // Review the error here URGENT
-                    && (BoardUtility.SECOND_ROW[this.position] && !this.getColour().isWhite()) ||
-                    BoardUtility.SEVENTH_ROW[this.position] && this.getColour().isWhite()) {
-                int behindPosition = this.position + (this.colour.getDirection() * 8);
-                if(!board.getSquare(behindPosition).isOccupied() && !board.getSquare(behindPosition).isOccupied()) {
+
+            else if (move == 16  && (BoardUtility.SEVENTH_ROW[this.position] &&
+                    this.getColour().isWhite()) ||
+                    BoardUtility.SECOND_ROW[this.position] && !(this.getColour().isWhite())) {
+
+                int behindPosition = this.position + (this.getColour().getDirection() * 8);
+                // This is the only place which was being added
+                if(board.getSquare(behindPosition).isOccupied() && !board.getSquare(behindPosition).isOccupied()) {
                     legalMoves.add(new PawnMove(board, this, newPosition));
+                    // Why was this being printed 3 times for each pawn? NOt efficient
+                }
+
+                System.out.println("test");
+            }
+            // This is completely wrong
+            else if (move == 7 && board.getSquare(newPosition).isOccupied()) {
+                if (this.getColour().isWhite() && !(board.getSquare(newPosition).getPiece().getColour().isWhite())) {
+                    // legalMoves.add(new PawnMove(board, this, newPosition));
+                    //TODO pawn capture move
+                }
+                else if (!(this.getColour().isWhite()) && board.getSquare(newPosition).getPiece().getColour().isWhite()) {
+                    // legalMoves.add(new PawnMove(board, this, newPosition));
+                    //TODO pawn capture move
                 }
             }
-            //
-            else if (move == 7 && !(BoardUtility.EIGHTH_COLUMN[this.position] && this.colour.isWhite() || // These are the wrong way round maybe
-                    BoardUtility.FIRST_COLUMN[this.position] && !this.colour.isWhite())) { // One edge case
-                if (board.getSquare(newPosition).isOccupied()) {
-                    Piece piece = board.getSquare(newPosition).getPiece();
-                    if (this.colour != piece.colour) {
-                        //TODO more to do here
-                        legalMoves.add(new PieceMove(board, this, newPosition));
-                    }
+
+            else if (move == 9 && board.getSquare(newPosition).isOccupied()) {
+                if (this.getColour().isWhite() && !(board.getSquare(newPosition).getPiece().getColour().isWhite())) {
+                    // legalMoves.add(new PawnMove(board, this, newPosition)); // How does it know the original position?
+                    //TODO pawn capture move
+                }
+                else if (!(this.getColour().isWhite()) && board.getSquare(newPosition).getPiece().getColour().isWhite()) {
+                    // legalMoves.add(new PawnMove(board, this, newPosition));
+                    //TODO pawn capture move
                 }
             }
-            else if (move == 9 && !((BoardUtility.EIGHTH_COLUMN[this.position] && !this.colour.isWhite()) ||
-                    BoardUtility.FIRST_COLUMN[this.position] && this.colour.isWhite())) { // One edge case
-                if (board.getSquare(newPosition).isOccupied()) {
-                    Piece piece = board.getSquare(newPosition).getPiece();
-                    if (this.colour != piece.colour) {
-                        //TODO more to do here
-                        legalMoves.add(new PieceMove(board, this, newPosition));
-                    }
-                }
-            }
+
         }
+
+        System.out.println(legalMoves.size());
 
         return legalMoves;
     }

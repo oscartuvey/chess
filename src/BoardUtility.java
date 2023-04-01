@@ -32,7 +32,7 @@ public class BoardUtility {
             row[rowNumber] = true;
             rowNumber++;
         }
-        while ((rowNumber % 8) != 0);
+        while ((rowNumber % 8) != 0); // THis might be wrong
 
         return row;
     }

@@ -1,8 +1,13 @@
+import java.util.Objects;
+
 public abstract class Move {
 
     final Board board;
     final Piece piece;
     final int newPosition;
+
+    public static final Move NULL_MOVE = new InvalidMove();
+
 
     public Move(Board board, Piece piece, int newPosition ) {
         this.board = board;
@@ -10,8 +15,17 @@ public abstract class Move {
         this.newPosition = newPosition;
     }
 
+    public Board getBoard() {
+        return this.board;
+    }
+
     public int getNewPosition() {
         return this.newPosition;
+    }
+
+    // Call location and destination when changing the names
+    public int getPosition() {
+        return this.piece.getPosition();
     }
 
     public Board execute() {
@@ -52,4 +66,41 @@ public abstract class Move {
     public Piece getPiece() {
         return this.piece;
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(board, piece, newPosition);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        Move otherMove = (Move) obj;
+
+        // Check this return statement is right
+        return board == otherMove.getBoard() && piece == otherMove.getPiece() &&
+                newPosition == otherMove.getNewPosition();
+    }
+
+    public boolean isAttack() {
+        return false;
+    }
+
+    public boolean isCastleMove() {
+        return false;
+    }
+
+    public Piece getCapturedPiece() {
+        return null;
+    }
+
+
 }

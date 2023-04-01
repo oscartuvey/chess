@@ -13,24 +13,27 @@ public class Board {
     private final Player currentPlayer;
 
     private Board(Builder builder) {
-        this.gameState = createGameState(builder);
+        this.gameState = createGameState(builder); // Check this is
+
         this.whitePieces = findActivePieces(this.gameState, Colour.WHITE);
         this.blackPieces = findActivePieces(this.gameState, Colour.BLACK);
 
-        Collection<Move> whiteLegalMoves = findLegalMoves(this.whitePieces);
+        Collection<Move> whiteLegalMoves = findLegalMoves(this.whitePieces); // This is where the error is
         Collection<Move> blackLegalMoves = findLegalMoves(this.blackPieces);
 
         this.whitePlayer = new WhitePlayer(this, whiteLegalMoves, blackLegalMoves);
-        this.blackPlayer = new BlackPlayer(this, whiteLegalMoves, blackLegalMoves);
+        this.blackPlayer = new BlackPlayer(this, whiteLegalMoves, blackLegalMoves); // These should be swapped around=
 
         this.currentPlayer = builder.nextMove.choosePlayer(this.whitePlayer, this.blackPlayer);
     }
 
-    public static Board initialiseBoard() { //TODO THIS NEEDS TO BE MOVED TO THE BOARD CALSS
+    public static Board initialiseBoard() {
         Builder builder = new Builder();
 
+        // THis only initialises the squares with something on them
+
         // Black
-        builder.setPiece(new Knight(0, Colour.BLACK));
+        builder.setPiece(new Rook(0, Colour.BLACK));
         builder.setPiece(new Knight(1, Colour.BLACK));
         builder.setPiece(new Bishop(2, Colour.BLACK));
         builder.setPiece(new Queen(3, Colour.BLACK));
@@ -107,10 +110,12 @@ public class Board {
     }
     private Collection<Move> findLegalMoves(Collection<Piece> pieces) {
         List<Move> legalMoves = new ArrayList<>();
-
+        // This is seen as static context?
         for (Piece piece : pieces) {
             legalMoves.addAll(piece.findLegalMoves(this));
         }
+
+        // System.out.println()
 
         return legalMoves;
     }
@@ -119,10 +124,14 @@ public class Board {
 
         List<Piece> activePieces = new ArrayList<>();
 
+        // Find active pieces is being called twice
+        // Once for each colour I believe
+
         for (Square square : gameState) {
-            if (square.isOccupied() && square.getPiece().getColour() == colour) {
+
+           if (square.isOccupied() && square.getPiece().getColour() == colour) {
                 activePieces.add(square.getPiece());
-            }
+           }
         }
 
         return activePieces;
@@ -133,19 +142,26 @@ public class Board {
         return gameState.get(position);
     }
 
-    private static List<Square> createGameState(Builder builder) {
-        Square[] squares = new Square[BoardUtility.NUM_TILES];
+    private static List<Square> createGameState(Builder builder) { // Error because of here
+        Square[] squares = new Square[BoardUtility.NUM_TILES]; // Creates a list with 64 tiles
 
         for (int i = 0; i < BoardUtility.NUM_TILES; i++) {
-            squares[i] = Square.createSquare(i, builder.boardLayout.get(i));
+            squares[i] = Square.createSquare(i, builder.boardLayout.get(i)); // What happens if there nothing there?
+            // What does createSquare do?
         }
 
-        return Arrays.asList(squares);
+        return Arrays.asList(squares); // Is it this line?
+    }
+
+    public Move[] getAllLegalMoves() {
+        return null; // TODO get all legal moves
     }
 
     public static class Builder {
         Map<Integer, Piece> boardLayout;
         Colour nextMove; // ???
+
+        Pawn enPassantPawn;
 
         public Builder() {
             this.boardLayout = new HashMap<>();
@@ -165,5 +181,10 @@ public class Board {
         public Board build() {
             return new Board(this);
         }
+
+        public void setEnPassantPawn(Pawn pawn) {
+            this.enPassantPawn = pawn;
+        }
+
     }
 }

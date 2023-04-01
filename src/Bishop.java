@@ -15,13 +15,12 @@ public class Bishop extends Piece {
         final List<Move> legalMoves = new ArrayList<>();
 
         for (int vector : POSSIBLE_MOVES_VECTOR) {
-            int newPosition = this.position;// Does this mean it can move to its current position?
+            int newPosition = this.position + vector;
 
             while (isValidMove(newPosition)) {
-                newPosition += vector;
 
                 if (isFirstColumnExclusion(position, vector) || isEighthColumnExclusion(position, vector)) {
-                    break; //  Check this is correct (compare to knight)
+                    break;
                 }
 
                 final Square square = board.getSquare(newPosition);
@@ -40,6 +39,8 @@ public class Bishop extends Piece {
                         break;
                     }
                 }
+                newPosition += vector;
+
             }
         }
 

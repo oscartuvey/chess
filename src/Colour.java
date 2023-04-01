@@ -2,7 +2,7 @@ public enum Colour {
     WHITE {
         @Override
         public int getDirection() {
-            return 1;
+            return -1;
         }
 
         @Override
@@ -18,7 +18,7 @@ public enum Colour {
     BLACK {
         @Override
         public int getDirection() {
-            return -1;
+            return 1;
         }
 
         @Override

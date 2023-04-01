@@ -4,48 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="90f5d5cd-5717-4fd5-8971-9d9ce02806cb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/7/978c285cca75bd0c04d8daf808a858d4069f7715" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/5/a5cc2925ca8258af241be7e5b0381edf30266302" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chess.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Bishop.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BlackPlayer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BoardUtility.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CaptureMove.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CastleMove.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CastleMoveKingSide.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CastleMoveQueenSide.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Chess.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Colour.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/EmptySquare.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/InvalidMove.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/King.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Knight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Move.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/OccupiedSquare.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Outcome.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Pawn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PawnCaptureMove.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PawnCaptureMoveEnPassant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PawnDoubleMove.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PawnMove.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Piece.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PieceMove.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Queen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Rook.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Square.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Status.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WhitePlayer.java" afterDir="false" />
+    <list default="true" id="90f5d5cd-5717-4fd5-8971-9d9ce02806cb" name="Changes" comment="Most backend classes completed.">
+      <change afterPath="$PROJECT_DIR$/src/MoveFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bishop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BlackPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BlackPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BoardUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardUtility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CaptureMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CaptureMove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CastleMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CastleMove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CastleMoveKingSide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CastleMoveKingSide.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CastleMoveQueenSide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CastleMoveQueenSide.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Chess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Colour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Colour.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InvalidMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InvalidMove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/King.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Knight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Move.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OccupiedSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OccupiedSquare.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PawnDoubleMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PawnDoubleMove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Queen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Square.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WhitePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WhitePlayer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +63,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -102,8 +88,21 @@
       <workItem from="1680039773463" duration="19775000" />
       <workItem from="1680104703162" duration="954000" />
       <workItem from="1680112431432" duration="789000" />
-      <workItem from="1680166324705" duration="2170000" />
+      <workItem from="1680166324705" duration="18895000" />
+      <workItem from="1680204376775" duration="158000" />
+      <workItem from="1680263916341" duration="594000" />
+      <workItem from="1680271376032" duration="596000" />
+      <workItem from="1680276592727" duration="558000" />
+      <workItem from="1680283263013" duration="10785000" />
     </task>
+    <task id="LOCAL-00001" summary="Most backend classes completed.">
+      <created>1680168536876</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1680168536876</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,5 +118,19 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Most backend classes completed." />
+    <option name="LAST_COMMIT_MESSAGE" value="Most backend classes completed." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="3" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

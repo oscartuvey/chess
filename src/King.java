@@ -20,10 +20,10 @@ public class King extends Piece {
             newPosition = this.position + move;
 
             if (isFirstColumnExclusion(this.position, move) || isEighthColumnExclusion(this.position, move)) {
-                continue;
+                break;
             }
 
-            if (isValidMove(position)) {
+            if (isValidMove(newPosition)) {
                 Square square = board.getSquare(newPosition);
                 if (!square.isOccupied()) {
                     legalMoves.add(new PieceMove(board, this, newPosition));

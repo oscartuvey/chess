@@ -1,5 +1,10 @@
 public class InvalidMove extends Move{
-    public InvalidMove(Board board, Piece piece, int newPosition) {
-        super(board, piece, newPosition);
+    public InvalidMove() {
+        super(null, null, -1);
+    }
+
+    @Override
+    public Board execute() {
+        throw new RuntimeException("Invalid move.");
     }
 }

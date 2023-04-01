@@ -14,31 +14,30 @@ public class Rook extends Piece {
         final List<Move> legalMoves = new ArrayList<>();
 
         for (int vector : POSSIBLE_MOVES_VECTOR) {
-            int newPosition = this.position;// Does this mean it can move to its current position?
+            int newPosition = this.position + vector;// Does this mean it can move to its current position?
 
             while (isValidMove(newPosition)) {
-                newPosition += vector;
 
                 if (isFirstColumnExclusion(position, vector) || isEighthColumnExclusion(position, vector)) {
-                    break; //  Check this is correct (compare to knight)
+                    break;
                 }
 
-                final Square square = board.getSquare(newPosition);
+                Square square = board.getSquare(newPosition);
 
-                if (isValidMove(newPosition)) { //isValidSquare is wrong look at knight
-                    if(!square.isOccupied()) {
-                        legalMoves.add(new PieceMove(board, this, newPosition)); // Check this is right
-                    }
-                    else {
-                        Piece piece = square.getPiece();
-                        Colour colour = piece.getColour();
-
-                        if (this.colour != colour) {
-                            legalMoves.add(new CaptureMove(board, this, newPosition, piece)); // Revisit video 6 to check this is corredct
-                        }
-                        break;
-                    }
+                if(!square.isOccupied()) {
+                    legalMoves.add(new PieceMove(board, this, newPosition)); // Check this is right
                 }
+                else {
+                    Piece piece = square.getPiece();
+                    Colour colour = piece.getColour();
+
+                    if (this.colour != colour) {
+                        legalMoves.add(new CaptureMove(board, this, newPosition, piece)); // Revisit video 6 to check this is corredct
+                    }
+                    break;
+                }
+
+                newPosition += vector;
             }
         }
 

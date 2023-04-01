@@ -20,11 +20,11 @@ public class OccupiedSquare extends Square {
     @Override
     public String toString() {
 
-        if (this.getPiece().getColour().isWhite()) { // TODO Check this works properly (11:03 #16)
-            return this.toString();
+        if (this.getPiece().getColour().isWhite()) {
+            return this.getPiece().toString(); //
         }
         else {
-            return this.toString().toLowerCase();
+            return this.getPiece().toString().toLowerCase();
         }
 
 

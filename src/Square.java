@@ -23,6 +23,10 @@ public abstract class Square {
         this.position = position;
     }
 
+    public int getSquarePosition() {
+        return this.position;
+    }
+
     public static Square createSquare(int position, Piece piece) {
         if (piece != null) {
             return new OccupiedSquare(position, piece);

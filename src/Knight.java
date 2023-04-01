@@ -20,9 +20,9 @@ public class Knight extends Piece {
 
             if (isValidMove(newPosition)) {
 
-                if (isFirstColumnExclusion(this.position, move) || isSecondColumnExclusion(this.position, move)
+                if (isFirstColumnExclusion(this.position, move) || isSecondColumnExclusion(this.position, move) // Im not sure this is right
                 || isSeventhColumnExclusion(this.position, move) || isEighthColumnExclusion(this.position, move)) {
-                    continue;
+                    break; // Check break works properly
                 }
 
                 Square square = board.getSquare(newPosition);
@@ -40,6 +40,7 @@ public class Knight extends Piece {
                 }
             }
         }
+
         return legalMoves;// Figure whether to do the immutable list thing
     }
 

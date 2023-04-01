@@ -13,11 +13,12 @@ public abstract class Player {
         this.board = board;
         this.king = initialiseKing();
         this.legalMoves = legalMoves;
+        this.legalMoves.addAll(calculateKingCastles(legalMoves, opponentMoves)); // This could be wrong
         this.inCheck = !Player.calculateAttacksOnTile(this.king.getPosition(), opponentMoves).isEmpty();
     }
 
     //TODO check if this method is only used to check checks in which case rename it
-    private static Collection<Move> calculateAttacksOnTile(int position, Collection<Move> moves) {
+    public static Collection<Move> calculateAttacksOnTile(int position, Collection<Move> moves) {
         List<Move> attackMoves = new ArrayList<>();
 
         for (Move move : moves) {
@@ -50,7 +51,6 @@ public abstract class Player {
         return this.legalMoves.contains(move);
     }
 
-    //TODO implement below methods
     public boolean inCheck() {
         return this.inCheck;
     }
@@ -105,6 +105,8 @@ public abstract class Player {
     public abstract Colour getColour();
 
     public abstract Player getPlayer();
+
+    protected abstract Collection<Move> calculateKingCastles(Collection<Move> playerLegals, Collection<Move> opponentLegals);
 
 
 }

@@ -33,6 +33,8 @@ public abstract class Piece {
                 colour == otherPiece.getColour() && isFirstMove == otherPiece.isFirstMove();
     }
 
+
+
     @Override
     public int hashCode() {
         return Objects.hash(type, position, colour, isFirstMove);
@@ -66,9 +68,19 @@ public abstract class Piece {
             public boolean isKing() {
                 return false;
             }
+
+            @Override
+            public boolean isRook() {
+                return false;
+            }
         }, KNIGHT("H") {
             @Override
             public boolean isKing() {
+                return false;
+            }
+
+            @Override
+            public boolean isRook() {
                 return false;
             }
         }, BISHOP("B") {
@@ -76,19 +88,39 @@ public abstract class Piece {
             public boolean isKing() {
                 return false;
             }
+
+            @Override
+            public boolean isRook() {
+                return false;
+            }
         }, ROOK("R") {
             @Override
             public boolean isKing() {
                 return false;
             }
+
+            @Override
+            public boolean isRook() {
+                return true;
+            }
         }, QUEEN("Q") {
             public boolean isKing() {
+                return false;
+            }
+
+            @Override
+            public boolean isRook() {
                 return false;
             }
         },
         KING("K") {
             public boolean isKing() {
                 return true;
+            }
+
+            @Override
+            public boolean isRook() {
+                return false;
             }
         };
 
@@ -104,6 +136,8 @@ public abstract class Piece {
         }
 
         public abstract boolean isKing();
+
+        public abstract boolean isRook();
     }
 
 }
