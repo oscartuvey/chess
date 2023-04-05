@@ -1,4 +1,9 @@
+import java.io.InputStream;
+import java.net.URL;
 import javafx.application.Application;
+import javafx.scene.Group;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.ImagePattern;
 import javafx.stage.Stage;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
@@ -14,19 +19,12 @@ public class ChessUI extends Application {
     private static final int RECTANGLE_HEIGHT = 100;
     public static String BOARD_STRING;
 
-    public static void main(String[] args) {
-
+    @Override
+    public void start(Stage stage) {
         Board board = Board.initialiseBoard(); // Initialise board is being set here
-
-        launch(args); // What purpose does args serve here?
 
         BOARD_STRING = board.toString();
 
-
-
-    }
-    @Override
-    public void start(Stage stage) {
         GridPane root = new GridPane();
         root.setHgap(0.0);
         root.setVgap(0.0);
@@ -40,29 +38,37 @@ public class ChessUI extends Application {
 
             for (int col = 0; col < BoardUtility.NUM_COLS; col++) {
                 Rectangle square = new Rectangle(RECTANGLE_WIDTH, RECTANGLE_HEIGHT);
+                Group group = new Group();
 
                 // Set the color of the square based on the piece in the board string
                 char piece = rows[row].charAt(col);
                 String pngFile;
                 if (piece == '-') {
                     square.setFill((row + col) % 2 == 0 ? Color.SADDLEBROWN : Color.TAN);
+                    group.getChildren().add(square);
                 } else if (Character.isUpperCase(piece)) {
                     square.setFill((row + col) % 2 == 0 ? Color.SADDLEBROWN : Color.TAN);
+                    group.getChildren().add(square);
                     pngFile = getWhitePiece(String.valueOf(piece));
-                    Image icon = new Image(pngFile);
+                    InputStream filePath = this.getClass().getResourceAsStream(pngFile);
+                    Image icon = new Image(filePath);
                     ImageView iconView = new ImageView(icon);
-                    iconView.setFitWidth(RECTANGLE_WIDTH / 2);
-                    iconView.setFitHeight(RECTANGLE_HEIGHT / 2);
+                    iconView.setFitWidth(RECTANGLE_WIDTH);
+                    iconView.setFitHeight(RECTANGLE_HEIGHT);
+                    group.getChildren().add(iconView);
                 } else {
                     square.setFill((row + col) % 2 == 0 ? Color.SADDLEBROWN : Color.TAN);
+                    group.getChildren().add(square);
                     pngFile = getBlackPiece(String.valueOf(piece));
-                    Image icon = new Image(pngFile);
+                    InputStream filePath = this.getClass().getResourceAsStream(pngFile);
+                    Image icon = new Image(filePath);
                     ImageView iconView = new ImageView(icon);
-                    iconView.setFitWidth(RECTANGLE_WIDTH / 2);
-                    iconView.setFitHeight(RECTANGLE_HEIGHT / 2);
+                    iconView.setFitWidth(RECTANGLE_WIDTH);
+                    iconView.setFitHeight(RECTANGLE_HEIGHT);
+                    group.getChildren().add(iconView);
                 }
 
-                root.add(square, col, row);
+                root.add(group, col, row);
             }
         }
 
