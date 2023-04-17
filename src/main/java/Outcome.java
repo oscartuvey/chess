@@ -18,6 +18,10 @@ public class Outcome {
         return this.status;
     }
 
+    public Board getBoard() {
+        return this.board;
+    }
+
 
 
 }

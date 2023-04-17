@@ -26,7 +26,7 @@ public class WhitePlayer extends Player {
     protected Collection<Move> calculateKingCastles(Collection<Move> playerLegals, Collection<Move> opponentLegals) {
 
         List<Move> kingCastles = new ArrayList<>();
-        // WHITES KING SIDE CASTLE
+        // WHITES KING SIDE CASTLE. This class is fucked redo it
         if (this.king.isFirstMove() && !this.inCheck()) {
             if (!this.board.getSquare(61).isOccupied() && !this.board.getSquare(63).isOccupied()) {
                 Square rookSquare = this.board.getSquare(63);
@@ -36,7 +36,7 @@ public class WhitePlayer extends Player {
                     if (Player.calculateAttacksOnTile(61, opponentLegals).isEmpty() &&
                         Player.calculateAttacksOnTile(62, opponentLegals).isEmpty() &&
                         rookSquare.getPiece().getType().isRook()) {
-
+                        // Empty body
                     }
                     kingCastles.add(new CastleMoveKingSide(this.board,
                             this.king,
@@ -50,7 +50,10 @@ public class WhitePlayer extends Player {
             if (!this.board.getSquare(59).isOccupied() && !this.board.getSquare(58).isOccupied() &&
             !this.board.getSquare(57).isOccupied()) {
                 Square rookSquare = this.board.getSquare(56);
-                if (rookSquare.isOccupied() && rookSquare.getPiece().isFirstMove()) {
+                if (rookSquare.isOccupied() && rookSquare.getPiece().isFirstMove() &&
+                        Player.calculateAttacksOnTile(58, opponentLegals).isEmpty() &&
+                        Player.calculateAttacksOnTile(59, opponentLegals).isEmpty() &&
+                        rookSquare.getPiece().getType().isRook()) {
                     //TODO add castle move
                     kingCastles.add(new CastleMoveQueenSide(this.board,
                             this.king,

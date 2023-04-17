@@ -51,7 +51,10 @@ public class BlackPlayer extends Player {
             if (!this.board.getSquare(1).isOccupied() && !this.board.getSquare(2).isOccupied() &&
                     !this.board.getSquare(3).isOccupied()) {
                 Square rookSquare = this.board.getSquare(0);
-                if (rookSquare.isOccupied() && rookSquare.getPiece().isFirstMove()) { // TODO check whether the position the king moves to is under atack
+                if (rookSquare.isOccupied() && rookSquare.getPiece().isFirstMove() &&
+                Player.calculateAttacksOnTile(2, opponentLegals).isEmpty() &&
+                Player.calculateAttacksOnTile(3, opponentLegals).isEmpty() &&
+                rookSquare.getPiece().getType().isRook()) { // TODO check whether the position the king moves to is under atacc
                     kingCastles.add(new CastleMoveQueenSide(this.board,
                             this.king,
                             2,
