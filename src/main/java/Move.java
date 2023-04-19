@@ -69,7 +69,7 @@ public abstract class Move {
         builder.setMoveMaker(this.board.currentPlayer().getPlayer().getColour()); // Refactor these names as they are confusing
 
         return builder.build();
-    };
+    }
 
     public Piece getPiece() {
         return this.piece;

@@ -20,6 +20,8 @@ public class Pawn extends Piece {
         for (int move : POSSIBLE_MOVES) {
 
             int newPosition = this.position + (move * this.getColour().getDirection());
+            Square square = board.getSquare(newPosition);
+            Piece piece = square.getPiece();
 
             if (!isValidMove(newPosition)) { // THis should be preventing this from happen
                  continue;
@@ -40,37 +42,54 @@ public class Pawn extends Piece {
 
                 if (!board.getSquare(behindPosition).isOccupied()) {
                     if (this.getColour().isWhite() && BoardUtility.SEVENTH_ROW[this.position]) {
-                        // TODO change this to double pawn move
-                        legalMoves.add(new PawnMove(board, this, newPosition));
+                        legalMoves.add(new PawnDoubleMove(board, this, newPosition));
                     }
                     else if (!this.getColour().isWhite() && BoardUtility.SECOND_ROW[this.position]) {
-                        // TODO change this to double pawn move
-                        legalMoves.add(new PawnMove(board, this, newPosition));
-                        // SonarLint suggests making this a method since its repeated a bunch of times, probably a good idea
+                        legalMoves.add(new PawnDoubleMove(board, this, newPosition)); // This worked when it was just PawnMove
+                        // Work out why PawnDoubleMove doesn't work
+                        // SonarLint suggests making this a method
                     }
                 }
 
             }
-            // This is completely wrong
+
             else if (move == 7 && board.getSquare(newPosition).isOccupied()) {
                 if (this.getColour().isWhite() && !(board.getSquare(newPosition).getPiece().getColour().isWhite())) {
-                    // legalMoves.add(new PawnMove(board, this, newPosition));
-                    //TODO pawn capture move
+                    legalMoves.add(new PawnCaptureMove(board, this, newPosition, piece));
                 }
                 else if (!(this.getColour().isWhite()) && board.getSquare(newPosition).getPiece().getColour().isWhite()) {
-                    // legalMoves.add(new PawnMove(board, this, newPosition));
-                    //TODO pawn capture move
+                    legalMoves.add(new PawnCaptureMove(board, this, newPosition, piece));
+                }
+                else if (board.getEnPassantPawn() != null) {
+                    // Multiplying by -1 is the same as finding the opposite direction
+                    // En Passant pawns will be horizontally equal to the pawn capturing it
+                    int enPassantPawnDirection = this.getPosition() + (this.getColour().getDirection() * -1);
+                    if (board.getEnPassantPawn().getPosition() == this.getPosition() + (enPassantPawnDirection)) {
+                        Piece enPassantPawn = board.getEnPassantPawn();
+                        if (this.colour != enPassantPawn.getColour()) {
+                            legalMoves.add(new PawnCaptureMoveEnPassant(board, this, newPosition, enPassantPawn));
+                        }
+                    }
                 }
             }
 
             else if (move == 9 && board.getSquare(newPosition).isOccupied()) {
                 if (this.getColour().isWhite() && !(board.getSquare(newPosition).getPiece().getColour().isWhite())) {
-                    // legalMoves.add(new PawnMove(board, this, newPosition)); // How does it know the original position?
-                    //TODO pawn capture move
+                    legalMoves.add(new PawnCaptureMove(board, this, newPosition, piece));
                 }
                 else if (!(this.getColour().isWhite()) && board.getSquare(newPosition).getPiece().getColour().isWhite()) {
-                    // legalMoves.add(new PawnMove(board, this, newPosition));
-                    //TODO pawn capture move
+                    legalMoves.add(new PawnCaptureMove(board, this, newPosition, piece));
+                }
+                else if (board.getEnPassantPawn() != null) {
+                    // Multiplying by -1 is the same as finding the opposite direction
+                    // En Passant pawns will be horizontally equal to the pawn capturing it
+                    int enPassantPawnDirection = this.getPosition() - (this.getColour().getDirection() * -1);
+                    if (board.getEnPassantPawn().getPosition() == this.getPosition() + (enPassantPawnDirection)) {
+                        Piece enPassantPawn = board.getEnPassantPawn();
+                        if (this.colour != enPassantPawn.getColour()) {
+                            legalMoves.add(new PawnCaptureMoveEnPassant(board, this, newPosition, enPassantPawn));
+                        }
+                    }
                 }
             }
 

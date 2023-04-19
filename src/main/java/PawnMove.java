@@ -4,4 +4,21 @@ public class PawnMove extends Move {
         super(board, piece, newPosition);
     }
 
+    @Override
+    public boolean equals(final Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        PawnMove otherPawnMove = (PawnMove) obj; // Why is it called other?
+
+        // Check this return statement is right.
+        return super.equals(otherPawnMove);
+    }
+
 }

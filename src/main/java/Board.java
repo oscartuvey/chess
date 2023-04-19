@@ -5,18 +5,17 @@ public class Board {
     private final List<Square> gameState;
     private final Collection<Piece> whitePieces;
     private final Collection<Piece> blackPieces;
-
     private final WhitePlayer whitePlayer;
-
     private final BlackPlayer blackPlayer;
-
     private final Player currentPlayer;
+    private final Pawn enPassantPawn;
 
     private Board(Builder builder) {
         this.gameState = createGameState(builder);
 
         this.whitePieces = findActivePieces(this.gameState, Colour.WHITE);
         this.blackPieces = findActivePieces(this.gameState, Colour.BLACK);
+        this.enPassantPawn = builder.enPassantPawn;
 
         Collection<Move> whiteLegalMoves = findLegalMoves(this.whitePieces);
         Collection<Move> blackLegalMoves = findLegalMoves(this.blackPieces);
@@ -105,6 +104,10 @@ public class Board {
     public Player getWhitePlayer() {
         return this.whitePlayer;
     }
+
+    public Pawn getEnPassantPawn() { // this doesnt seem right
+        return this.enPassantPawn;
+    }
     private Collection<Move> findLegalMoves(Collection<Piece> pieces) {
         List<Move> legalMoves = new ArrayList<>();
         // This is seen as static context?
@@ -155,7 +158,6 @@ public class Board {
     public static class Builder {
         Map<Integer, Piece> boardLayout;
         Colour nextMove;
-
         Pawn enPassantPawn;
 
         public Builder() {
@@ -169,7 +171,6 @@ public class Board {
 
         public Builder setMoveMaker(Colour colour) {
             this.nextMove = colour;
-
             return this;
         }
 

@@ -36,7 +36,7 @@ public class King extends Piece {
                     Piece piece = square.getPiece();
                     Colour colour = piece.getColour();
                     if (this.getColour() != colour) {
-                        legalMoves.add(new CaptureMove(board, this, newPosition, piece));
+                        legalMoves.add(new PieceCaptureMove(board, this, newPosition, piece));
                     }
                 }
             }

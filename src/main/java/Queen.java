@@ -38,7 +38,7 @@ public class Queen extends Piece {
                         Colour colour = piece.getColour();
 
                         if (this.colour != colour) {
-                            legalMoves.add(new CaptureMove(board, this, newPosition, piece)); // #6
+                            legalMoves.add(new PieceCaptureMove(board, this, newPosition, piece)); // #6
                         }
                         break;
                     }

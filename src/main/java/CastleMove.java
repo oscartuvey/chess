@@ -47,5 +47,22 @@ public abstract class CastleMove extends Move {
     }
 
 
+    // TODO do I need a hashcode method?
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        CastleMove otherCastleMove = (CastleMove) obj;
 
+        // Check this return statement is right and in other cases
+        return super.equals(otherCastleMove) && this.rook.equals(otherCastleMove.getRook());
+    }
 }
+

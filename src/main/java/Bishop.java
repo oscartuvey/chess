@@ -27,7 +27,7 @@ public class Bishop extends Piece {
                     break;
                 }
 
-                final Square square = board.getSquare(newPosition);
+                Square square = board.getSquare(newPosition);
 
                 if (isValidMove(newPosition)) { //isValidSquare is wrong look at knight
                     if(!square.isOccupied()) {
@@ -38,7 +38,7 @@ public class Bishop extends Piece {
                         Colour colour = piece.getColour();
 
                         if (this.colour != colour) {
-                            legalMoves.add(new CaptureMove(board, this, newPosition, piece)); // REvisit #6
+                            legalMoves.add(new PieceCaptureMove(board, this, newPosition, piece)); // REvisit #6
                         }
                         break;
                     }

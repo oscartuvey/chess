@@ -21,6 +21,8 @@ public class PawnDoubleMove extends Move {
         }
 
         Pawn movedPawn = (Pawn)this.piece.movePiece(this);
+        // Missing a line here #41 7:15
+        builder.setPiece(movedPawn);
         builder.setEnPassantPawn(movedPawn);
         builder.setMoveMaker(this.board.currentPlayer().getPlayer().getColour());
         return builder.build();

@@ -39,7 +39,7 @@ public class Knight extends Piece {
                     Colour colour = piece.getColour();
 
                     if (this.colour != colour) {
-                        legalMoves.add(new CaptureMove(board, this, newPosition, piece)); // Revisit # 6 to check this is corredct
+                        legalMoves.add(new PieceCaptureMove(board, this, newPosition, piece)); // Revisit # 6 to check this is corredct
                     }
                 }
             }

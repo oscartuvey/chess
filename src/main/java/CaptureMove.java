@@ -9,12 +9,6 @@ public class CaptureMove extends Move {
         this.capturedPiece = capturedPiece;
     }
 
-    // THis method as it is now should actually be in PieceMove
-    @Override
-    public Board execute() {
-        return null;
-    }
-
     @Override
     public boolean isAttack() {
         return true;
@@ -41,7 +35,7 @@ public class CaptureMove extends Move {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        Move otherCaptureMove = (CaptureMove) obj;
+        CaptureMove otherCaptureMove = (CaptureMove) obj;
 
         // Check this return statement is right
         return super.equals(otherCaptureMove) && getCapturedPiece().equals(otherCaptureMove.getCapturedPiece());
