@@ -26,6 +26,7 @@ public class Knight extends Piece {
 
                 if (isFirstColumnExclusion(this.position, move) || isSecondColumnExclusion(this.position, move) // Im not sure this is right
                 || isSeventhColumnExclusion(this.position, move) || isEighthColumnExclusion(this.position, move)) {
+                    // Why does this not include column exclusions for all the other columns??
                     break; // Check break works properly
                 }
 
@@ -45,7 +46,7 @@ public class Knight extends Piece {
             }
         }
 
-        return legalMoves;// Figure whether to do the immutable list thing
+        return legalMoves;
     }
 
     @Override

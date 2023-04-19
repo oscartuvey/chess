@@ -27,4 +27,20 @@ public class PawnDoubleMove extends Move {
         builder.setMoveMaker(this.board.currentPlayer().getPlayer().getColour());
         return builder.build();
     }
+
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        PawnDoubleMove otherPawnDoubleMove = (PawnDoubleMove) obj; // Why is it called other?
+
+        // Check this return statement is right.
+        return super.equals(otherPawnDoubleMove);
+    }
 }

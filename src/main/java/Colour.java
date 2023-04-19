@@ -10,6 +10,10 @@ public enum Colour {
             return true;
         }
 
+        public boolean isPromotionSquare(int position) {
+            return BoardUtility.FIRST_ROW[position];
+        }
+
         @Override
         public Player choosePlayer(WhitePlayer whitePlayer, BlackPlayer blackPlayer) {
             return whitePlayer;
@@ -26,6 +30,10 @@ public enum Colour {
             return false;
         }
 
+        public boolean isPromotionSquare(int position) {
+            return BoardUtility.EIGHTH_ROW[position];
+        }
+
         @Override
         public Player choosePlayer(WhitePlayer whitePlayer, BlackPlayer blackPlayer) {
             return blackPlayer;
@@ -34,6 +42,8 @@ public enum Colour {
 
     public abstract int getDirection();
     public abstract boolean isWhite();
+
+    public abstract boolean isPromotionSquare(int position);
 
     public abstract Player choosePlayer(WhitePlayer whitePlayer, BlackPlayer blackPlayer);
 }

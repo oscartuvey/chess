@@ -4,32 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="90f5d5cd-5717-4fd5-8971-9d9ce02806cb" name="Changes" comment="More changes :')">
-      <change afterPath="$PROJECT_DIR$/src/main/java/InvalidMoveException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/PieceCaptureMove.java" afterDir="false" />
+    <list default="true" id="90f5d5cd-5717-4fd5-8971-9d9ce02806cb" name="Changes" comment="Added en Passant, fixed a few bugs, and added in a few custom exceptions.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/PawnMovePromotion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bishop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CaptureMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CaptureMove.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CastleMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CastleMove.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CastleMoveKingSide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CastleMoveKingSide.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CastleMoveQueenSide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CastleMoveQueenSide.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/InvalidMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/InvalidMove.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/King.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BoardUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BoardUtility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ChessUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ChessUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Colour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Colour.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Knight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Move.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Pawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PawnCaptureMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PawnCaptureMove.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PawnCaptureMoveEnPassant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PawnCaptureMoveEnPassant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/PawnDoubleMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PawnDoubleMove.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PawnMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PawnMove.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Queen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Rook.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +180,7 @@
       <workItem from="1681813395839" duration="2416000" />
       <workItem from="1681815831204" duration="8395000" />
       <workItem from="1681827018426" duration="8958000" />
-      <workItem from="1681854839260" duration="17121000" />
+      <workItem from="1681854839260" duration="24833000" />
     </task>
     <task id="LOCAL-00001" summary="Most backend classes completed.">
       <created>1680168536876</created>
@@ -227,7 +217,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681906924085</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added en Passant, fixed a few bugs, and added in a few custom exceptions.">
+      <created>1681916757526</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1681916757526</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,7 +246,8 @@
     <MESSAGE value="For Tom." />
     <MESSAGE value="Rewrote ChessUI." />
     <MESSAGE value="More changes :')" />
-    <option name="LAST_COMMIT_MESSAGE" value="More changes :')" />
+    <MESSAGE value="Added en Passant, fixed a few bugs, and added in a few custom exceptions." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added en Passant, fixed a few bugs, and added in a few custom exceptions." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -261,6 +259,10 @@
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.StackOverflowError" package="java.lang" />
           <option name="timeStamp" value="5" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
+          <option name="timeStamp" value="6" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>

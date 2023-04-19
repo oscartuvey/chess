@@ -14,9 +14,13 @@ public class BoardUtility {
 
     public static final boolean[] EIGHTH_COLUMN = initColumn(7);
 
+    public static final boolean[] FIRST_ROW = initRow(0);
+
     public static final boolean[] SECOND_ROW = initRow(8);
 
     public static final boolean[] SEVENTH_ROW = initRow(48);
+
+    public static final boolean[] EIGHTH_ROW = initRow(56);
 
     private static boolean[] initColumn(int columnNumber) { // rename vars
         final boolean[] column = new boolean[64];

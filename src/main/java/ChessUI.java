@@ -214,10 +214,12 @@ public class ChessUI extends Application {
 
             for (Move move : findLegalMoves(board)) {
                 if (move.getNewPosition() == this.position) {
+                    System.out.println(this.position); // Its trying to show a dot on a square with a piece already and crashing
                     String pngFile = "greenDot.png";
                     InputStream filePath = this.getClass().getResourceAsStream(pngFile);
                     Image image = new Image(filePath, RECTANGLE_WIDTH / 2, RECTANGLE_HEIGHT / 2, false, false);
                     this.imageView.setImage(image);
+                    // This is adding two things to the bishop at once
                     this.getChildren().add(this.imageView);
                 }
             }
