@@ -4,34 +4,41 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="90f5d5cd-5717-4fd5-8971-9d9ce02806cb" name="Changes" comment="For Tom.">
-      <change beforePath="$PROJECT_DIR$/.gradle/8.0.1/checksums/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.0.1/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.0.1/dependencies-accessors/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.0.1/executionHistory/executionHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.0.1/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.0.1/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.0.1/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.0.1/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.0.1/fileHashes/resourceHashesCache.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.0.1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/checksums/checksums.lock" afterDir="false" />
+    <list default="true" id="90f5d5cd-5717-4fd5-8971-9d9ce02806cb" name="Changes" comment="Rewrote ChessUI.">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/intellij-javadocs-4.0.1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/f/9fe84ebb15faf917b7def6236dba604453cc61e0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/greenDot.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bishop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/BlackPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BlackPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BoardUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BoardUtility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CastleMoveKingSide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CastleMoveKingSide.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CastleMoveQueenSide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CastleMoveQueenSide.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ChessUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ChessUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/InvalidMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/InvalidMove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/King.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Knight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Move.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MoveFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MoveFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/OccupiedSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/OccupiedSquare.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Outcome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Outcome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Pawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PieceMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PieceMove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Queen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Rook.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/WhitePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/WhitePlayer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -110,6 +117,7 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -187,7 +195,12 @@
       <workItem from="1681486770108" duration="98000" />
       <workItem from="1681495771123" duration="590000" />
       <workItem from="1681643356238" duration="364000" />
-      <workItem from="1681686272696" duration="5816000" />
+      <workItem from="1681686272696" duration="15166000" />
+      <workItem from="1681808391563" duration="4930000" />
+      <workItem from="1681813395839" duration="2416000" />
+      <workItem from="1681815831204" duration="8395000" />
+      <workItem from="1681827018426" duration="8958000" />
+      <workItem from="1681854839260" duration="8972000" />
     </task>
     <task id="LOCAL-00001" summary="Most backend classes completed.">
       <created>1680168536876</created>
@@ -210,7 +223,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680350289009</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Rewrote ChessUI.">
+      <created>1681729811793</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1681729811793</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,14 +250,19 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Most backend classes completed." />
     <MESSAGE value="For Tom." />
-    <option name="LAST_COMMIT_MESSAGE" value="For Tom." />
+    <MESSAGE value="Rewrote ChessUI." />
+    <option name="LAST_COMMIT_MESSAGE" value="Rewrote ChessUI." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
+        <breakpoint type="java-exception">
           <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="3" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.StackOverflowError" package="java.lang" />
+          <option name="timeStamp" value="5" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>

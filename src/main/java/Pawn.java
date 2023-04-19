@@ -6,7 +6,11 @@ public class Pawn extends Piece {
     private final static int[] POSSIBLE_MOVES = {7, 8, 9, 16};
 
     public Pawn(int position, Colour colour) {
-        super(position, colour, PieceType.PAWN);
+        super(position, colour, PieceType.PAWN, true);
+    }
+
+    public Pawn(int position, Colour colour, boolean isFirstMove) {
+        super(position, colour, PieceType.PAWN, true);
     }
 
     @Override
@@ -71,8 +75,6 @@ public class Pawn extends Piece {
             }
 
         }
-
-        System.out.println(legalMoves.size());
 
         return legalMoves;
     }

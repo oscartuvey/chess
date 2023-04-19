@@ -26,7 +26,7 @@ public class WhitePlayer extends Player {
     protected Collection<Move> calculateKingCastles(Collection<Move> playerLegals, Collection<Move> opponentLegals) {
 
         List<Move> kingCastles = new ArrayList<>();
-        // WHITES KING SIDE CASTLE. This class is fucked redo it
+        // WHITES KING SIDE CASTLE. This class redo it
         if (this.king.isFirstMove() && !this.inCheck()) {
             if (!this.board.getSquare(61).isOccupied() && !this.board.getSquare(63).isOccupied()) {
                 Square rookSquare = this.board.getSquare(63);

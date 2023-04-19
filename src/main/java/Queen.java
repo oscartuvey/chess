@@ -6,7 +6,11 @@ public class Queen extends Piece {
     private final static int[] POSSIBLE_MOVES_VECTOR = {-9, -8, -7, -1, 1, 7, 8, 9};
 
     public Queen(int position, Colour colour) {
-        super(position, colour, PieceType.QUEEN);
+        super(position, colour, PieceType.QUEEN, true);
+    }
+
+    public Queen(int position, Colour colour, boolean isFirstMove) {
+        super(position, colour, PieceType.QUEEN, isFirstMove);
     }
 
     @Override
@@ -34,7 +38,7 @@ public class Queen extends Piece {
                         Colour colour = piece.getColour();
 
                         if (this.colour != colour) {
-                            legalMoves.add(new CaptureMove(board, this, newPosition, piece)); // Revisit video 6 to check this is correct
+                            legalMoves.add(new CaptureMove(board, this, newPosition, piece)); // #6
                         }
                         break;
                     }

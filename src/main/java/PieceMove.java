@@ -4,4 +4,9 @@ public class PieceMove extends Move {
         super(board, piece, newPosition);
     }
 
+    @Override
+    public boolean equals (Object other) {
+        return this == other || other instanceof PieceMove && super.equals(other);
+    }
+
 }

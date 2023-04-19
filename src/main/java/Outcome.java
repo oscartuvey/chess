@@ -1,6 +1,6 @@
 public class Outcome {
 
-    // Move transition class from the tutorial
+    // Move transition
 
     private final Board board;
     private final Move move;

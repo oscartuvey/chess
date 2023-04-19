@@ -10,6 +10,9 @@ import javafx.scene.image.ImageView;
 import java.util.List;
 import java.util.ArrayList;
 import javafx.scene.layout.StackPane;
+import javafx.scene.input.MouseButton;
+import java.util.Collections;
+import java.util.Collection;
 
 public class ChessUI extends Application {
 
@@ -18,20 +21,27 @@ public class ChessUI extends Application {
     private Board board;
     private List<SquareNode> squares;
 
+    private Square source;
+    private Square destination;
+    private Piece movedPiece;
+
+    private GridPane root;
+
+
     @Override
     public void start(Stage stage) {
 
         this.squares = new ArrayList<>();
         this.board = Board.initialiseBoard();
 
-        GridPane root = new GridPane();
+        this.root = new GridPane();
         root.setHgap(0.0);
         root.setVgap(0.0);
 
         for (int i = 0; i < 64; i++) {
             SquareNode square = new SquareNode(i); // add to list too
 
-            // The toString method which converts to lowercase is for the SQUARE ITSELF AND NOT THE PIECE ITSELF
+            this.squares.add(square); // Check this is okay and work out if it's even necessary
 
             root.add(square, i % BoardUtility.NUM_COLS, i / BoardUtility.NUM_ROWS);
         }
@@ -43,29 +53,118 @@ public class ChessUI extends Application {
         stage.show();
     }
 
-    private class SquareNode extends StackPane {
+    public void updateBoard(Board board) {
+
+        GridPane root = this.getRoot();
+
+        root.getChildren().clear();
+
+        for (SquareNode square : squares) {
+            square.drawSquare(board);
+
+            int i = square.getPosition();
+
+            // This method is used twice so maybe refactor
+            root.add(square, i % BoardUtility.NUM_COLS, i / BoardUtility.NUM_ROWS);
+        }
+
+    }
+
+    // Change name and move this somewhere more appropriate
+    public static class Moves { // Could extend the List class or something along those lines. Defo refactor
+
+        private List<Move> moves;
+
+        public Moves() {
+            this.moves = new ArrayList<>();
+        }
+
+        public List<Move> getMoves() {
+            return this.moves;
+        }
+
+        public void add(Move move) {
+            this.moves.add(move);
+        }
+
+        public int size() {
+            return this.moves.size();
+        }
+
+        public void clear() {
+            this.moves.clear();
+        }
+
+        public void remove(Move move) {
+            this.moves.remove(move);
+        }
+
+        public void remove(int index) {
+            this.moves.remove(index);
+        }
+
+    }
+
+    public GridPane getRoot() {
+        return this.root;
+    }
+
+    public class SquareNode extends StackPane {
 
         private final int position;
+        private Rectangle square;
+        private ImageView imageView;
+
 
         SquareNode(int position) {
             // Remember to clear previous image off
             super();
             this.position = position;
-            Rectangle square = new Rectangle(RECTANGLE_WIDTH, RECTANGLE_HEIGHT);
-            square.setFill((this.position % BoardUtility.NUM_COLS + this.position / BoardUtility.NUM_ROWS) % 2 == 0 ? Color.TAN : Color.SADDLEBROWN);
-            this.getChildren().add(square);
-            if (board.getSquare(this.position).isOccupied()){
-                String pngFile = renderPiece(board.getSquare(this.position).toString()); // See above for explanation (the to-do)
-                // Exception for if filePath is null
-                InputStream filePath = this.getClass().getResourceAsStream(pngFile);
-                Image image = new Image(filePath, RECTANGLE_WIDTH, RECTANGLE_HEIGHT, false, false);
-                ImageView imageView = new ImageView();
-                imageView.setImage(image);
-                this.getChildren().add(imageView);
-            }
+            this.square = new Rectangle(RECTANGLE_WIDTH, RECTANGLE_HEIGHT);
+            this.imageView = new ImageView();
+            setColour();
+            setPiece(board);
+
+            // Might want to change this as it looks weird but keep it for now because it should definitely work
+            setOnMouseClicked(event -> {
+                if (event.getButton() == MouseButton.SECONDARY) {
+                    source = null;
+                    destination = null;
+                    movedPiece = null;
+                }
+                else if (event.getButton() == MouseButton.PRIMARY) {
+                    // He adds attributes fo sourcetile, destinationtile, and humanmovedpiece
+                    if (source == null) {
+                        // first click (remove this and below)
+                        source = board.getSquare(position);
+
+                        movedPiece = source.getPiece();
+                        if (movedPiece == null) { // If i click on atile and its not an empty tile then assign piece to human moved piece otherwise undo assingment of source tile
+                            source = null;
+                        }
+                    }
+                    else {
+                        // second click. Explain this to self
+                        destination = board.getSquare(position);
+                        Move move = MoveFactory.createMove(board, source.getSquarePosition(), destination.getSquarePosition());
+                        Outcome outcome = board.currentPlayer().makeMove(move);
+                        if (outcome.getStatus().isDone()) {
+                            board = outcome.getBoard();
+                        }
+
+                        // This could be refactored as this is used multiple times
+                        source = null;
+                        destination = null;
+                        movedPiece = null;
+                    }
+
+                    updateBoard(board);
+
+                }
+            });
         }
 
-        public String renderPiece(String piece) {
+        public static String renderPiece(String piece) {
             return switch (piece) {
                 case ("P") -> "wP.png";
                 case ("R") -> "wR.png";
@@ -82,8 +181,55 @@ public class ChessUI extends Application {
                 default -> null;
             };
         }
+
+        public void drawSquare(Board board) {
+            this.getChildren().clear();
+            setColour();
+            setPiece(board); // It's probably because you don't remove
+            showLegalMoves(board);
+
+        }
+
+        public void setColour() {
+            this.square.setFill((this.position % BoardUtility.NUM_COLS + this.position / BoardUtility.NUM_ROWS) % 2 == 0 ? Color.TAN : Color.SADDLEBROWN);
+            this.getChildren().add(this.square); // Maybe need to clear everything from the node first
+        }
+
+        public void setPiece(Board board) {
+            if (board.getSquare(this.position).isOccupied()) {
+                String pngFile = renderPiece(board.getSquare(this.position).toString());
+                // Exception if filePath is null
+                InputStream filePath = this.getClass().getResourceAsStream(pngFile);
+                Image image = new Image(filePath, RECTANGLE_WIDTH, RECTANGLE_HEIGHT, false, false);
+                this.imageView.setImage(image);
+                this.getChildren().add(this.imageView);
+            }
+        }
+
+        public int getPosition() {
+            return this.position;
+        }
+
+        public void showLegalMoves(Board board) {
+
+            for (Move move : findLegalMoves(board)) {
+                if (move.getNewPosition() == this.position) {
+                    String pngFile = "greenDot.png";
+                    InputStream filePath = this.getClass().getResourceAsStream(pngFile);
+                    Image image = new Image(filePath, RECTANGLE_WIDTH / 2, RECTANGLE_HEIGHT / 2, false, false);
+                    this.imageView.setImage(image);
+                    this.getChildren().add(this.imageView);
+                }
+            }
+        }
+
+        public Collection<Move> findLegalMoves(Board board) {
+            if (movedPiece != null && movedPiece.getColour() == board.currentPlayer().getColour()) {
+                return movedPiece.findLegalMoves(board);
+            }
+            else {
+                return Collections.emptyList();
+            } // TODO  refactor!!!
+        }
     }
 }
-
-
-

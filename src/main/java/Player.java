@@ -93,7 +93,7 @@ public abstract class Player {
                 Player.calculateAttacksOnTile(newBoard.currentPlayer().getPlayer().getKing().getPosition(),
                 newBoard.currentPlayer().getLegalMoves());
 
-        if (!kingAttacks.isEmpty()) { // Do comments to explain whats going on here
+        if (!kingAttacks.isEmpty()) {
             return new Outcome(this.board, move, Status.PLAYER_IN_CHECK);
         }
 

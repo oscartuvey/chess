@@ -47,7 +47,7 @@ public class BlackPlayer extends Player {
                             5));
                 }
             }
-            // Difference between isFirstMove and isFirstMove()? Why do  I need them both exactly?
+            // Difference between isFirstMove and isFirstMove()?
             if (!this.board.getSquare(1).isOccupied() && !this.board.getSquare(2).isOccupied() &&
                     !this.board.getSquare(3).isOccupied()) {
                 Square rookSquare = this.board.getSquare(0);

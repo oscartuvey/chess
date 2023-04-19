@@ -13,24 +13,22 @@ public class Board {
     private final Player currentPlayer;
 
     private Board(Builder builder) {
-        this.gameState = createGameState(builder); // Check this is
+        this.gameState = createGameState(builder);
 
         this.whitePieces = findActivePieces(this.gameState, Colour.WHITE);
         this.blackPieces = findActivePieces(this.gameState, Colour.BLACK);
 
-        Collection<Move> whiteLegalMoves = findLegalMoves(this.whitePieces); // This is where the error is
+        Collection<Move> whiteLegalMoves = findLegalMoves(this.whitePieces);
         Collection<Move> blackLegalMoves = findLegalMoves(this.blackPieces);
 
         this.whitePlayer = new WhitePlayer(this, whiteLegalMoves, blackLegalMoves);
-        this.blackPlayer = new BlackPlayer(this, whiteLegalMoves, blackLegalMoves); // These should be swapped around=
+        this.blackPlayer = new BlackPlayer(this, whiteLegalMoves, blackLegalMoves);
 
         this.currentPlayer = builder.nextMove.choosePlayer(this.whitePlayer, this.blackPlayer);
     }
 
     public static Board initialiseBoard() {
         Builder builder = new Builder();
-
-        // THis only initialises the squares with something on them
 
         // Black
         builder.setPiece(new Rook(0, Colour.BLACK));
@@ -101,7 +99,7 @@ public class Board {
     }
 
     public Player currentPlayer() {
-        return this.currentPlayer();
+        return this.currentPlayer;
     }
 
     public Player getWhitePlayer() {
@@ -114,17 +112,12 @@ public class Board {
             legalMoves.addAll(piece.findLegalMoves(this));
         }
 
-        // System.out.println()
-
         return legalMoves;
     }
 
     private static Collection<Piece> findActivePieces(List<Square> gameState, Colour colour) {
 
         List<Piece> activePieces = new ArrayList<>();
-
-        // Find active pieces is being called twice
-        // Once for each colour I believe
 
         for (Square square : gameState) {
 
@@ -141,24 +134,27 @@ public class Board {
         return gameState.get(position);
     }
 
-    private static List<Square> createGameState(Builder builder) { // Error because of here
+    private static List<Square> createGameState(Builder builder) {
         Square[] squares = new Square[BoardUtility.NUM_TILES]; // Creates a list with 64 tiles
 
         for (int i = 0; i < BoardUtility.NUM_TILES; i++) {
-            squares[i] = Square.createSquare(i, builder.boardLayout.get(i)); // What happens if there nothing there?
-            // What does createSquare do?
+            squares[i] = Square.createSquare(i, builder.boardLayout.get(i));
         }
 
-        return Arrays.asList(squares); // Is it this line?
+        return Arrays.asList(squares);
     }
 
-    public Move[] getAllLegalMoves() {
-        return null; // TODO get all legal moves
+    public Collection<Move> getAllLegalMoves() {
+        List<Move> legalMoves = new ArrayList<>();
+        legalMoves.addAll(this.whitePlayer.getLegalMoves());
+        legalMoves.addAll(this.blackPlayer.getLegalMoves());
+
+        return legalMoves;
     }
 
     public static class Builder {
         Map<Integer, Piece> boardLayout;
-        Colour nextMove; // ???
+        Colour nextMove;
 
         Pawn enPassantPawn;
 
@@ -168,7 +164,7 @@ public class Board {
 
         public Builder setPiece(Piece piece) {
             this.boardLayout.put(piece.getPosition(), piece);
-            return this; // WHy is this not void then?
+            return this;
         }
 
         public Builder setMoveMaker(Colour colour) {

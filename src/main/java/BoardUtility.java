@@ -1,10 +1,11 @@
+import java.util.Map;
+
 public class BoardUtility {
 
 
     public static final int NUM_ROWS = 8;
     public static final int NUM_COLS = 8;
     public static final int NUM_TILES = 64;
-    // Add a constnat num tiles (64)
     public static final boolean[] FIRST_COLUMN = initColumn(0);
 
     public static final boolean[] SECOND_COLUMN = initColumn(1);
@@ -35,8 +36,9 @@ public class BoardUtility {
             row[rowNumber] = true;
             rowNumber++;
         }
-        while ((rowNumber % 8) != 0); // THis might be wrong
+        while ((rowNumber % 8) != 0); // This might be wrong
 
         return row;
     }
+
 }

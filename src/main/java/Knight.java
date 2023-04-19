@@ -5,8 +5,12 @@ public class Knight extends Piece {
 
     private final static int[] POSSIBLE_MOVES = {-17, -15, -10, -6, 6, 10, 15, 17}; // Check
 
-    Knight(int position, Colour colour) {
-        super(position, colour, PieceType.KNIGHT);
+    public Knight(int position, Colour colour) {
+        super(position, colour, PieceType.KNIGHT, true);
+    }
+
+    public Knight(int position, Colour colour, boolean isFirstMove) {
+        super(position, colour, PieceType.KNIGHT, isFirstMove);
     }
 
     @Override
@@ -35,7 +39,7 @@ public class Knight extends Piece {
                     Colour colour = piece.getColour();
 
                     if (this.colour != colour) {
-                        legalMoves.add(new CaptureMove(board, this, newPosition, piece)); // Revisit video 6 to check this is corredct
+                        legalMoves.add(new CaptureMove(board, this, newPosition, piece)); // Revisit # 6 to check this is corredct
                     }
                 }
             }

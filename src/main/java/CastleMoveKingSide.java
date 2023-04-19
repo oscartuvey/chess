@@ -3,8 +3,4 @@ public class CastleMoveKingSide extends CastleMove{
         super(board, piece, position, rook, rookPosition, rookDestination);
     }
 
-    @Override
-    public String toString() {
-        return "0-0";
-    }
 }

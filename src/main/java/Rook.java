@@ -6,7 +6,11 @@ public class Rook extends Piece {
     private final static int[] POSSIBLE_MOVES_VECTOR = {-8, -1, 1, 8};
 
     public Rook(int position, Colour colour) {
-        super(position, colour, PieceType.ROOK);
+        super(position, colour, PieceType.ROOK, true);
+    }
+
+    public Rook(int position, Colour colour, boolean isFirstMove) {
+        super(position, colour, PieceType.ROOK, isFirstMove);
     }
 
     @Override

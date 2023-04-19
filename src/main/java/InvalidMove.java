@@ -1,6 +1,6 @@
 public class InvalidMove extends Move{
     public InvalidMove() {
-        super(null, null, -1);
+        super(null, -1);
     }
 
     @Override

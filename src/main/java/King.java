@@ -6,7 +6,11 @@ public class King extends Piece {
     private static final int[] POSSIBLE_MOVES = {-9, -8, -7, -1, 1, 7, 8, 9};
 
     public King(int position, Colour colour) {
-        super(position, colour, PieceType.KING);
+        super(position, colour, PieceType.KING, true);
+    }
+
+    public King(int position, Colour colour, boolean isFirstMove) {
+        super(position, colour, PieceType.KING, isFirstMove);
     }
 
     @Override

@@ -5,8 +5,12 @@ public class Bishop extends Piece {
 
     private final static int[] POSSIBLE_MOVES_VECTOR = {-9, -7, 7, 9};
 
-    Bishop(int position, Colour colour) {
-        super(position, colour, PieceType.BISHOP);
+    public Bishop(int position, Colour colour) {
+        super(position, colour, PieceType.BISHOP, true);
+    }
+
+    public Bishop(int position, Colour colour, boolean isFirstMove) {
+        super(position, colour, PieceType.BISHOP, isFirstMove);
     }
 
     @Override
@@ -34,7 +38,7 @@ public class Bishop extends Piece {
                         Colour colour = piece.getColour();
 
                         if (this.colour != colour) {
-                            legalMoves.add(new CaptureMove(board, this, newPosition, piece)); // Revisit video 6 to check this is corredct
+                            legalMoves.add(new CaptureMove(board, this, newPosition, piece)); // REvisit #6
                         }
                         break;
                     }
@@ -53,9 +57,9 @@ public class Bishop extends Piece {
         return PieceType.BISHOP.toString();
     }
 
-    // Optimisation here
+
     // Can precompute all the possible bishops
-    // Video # 22  5:00
+    // # 22  5:00
 
     @Override
     public Piece movePiece(Move move) {

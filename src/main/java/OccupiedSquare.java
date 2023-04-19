@@ -21,7 +21,7 @@ public class OccupiedSquare extends Square {
     public String toString() {
 
         if (this.getPiece().getColour().isWhite()) {
-            return this.getPiece().toString(); //
+            return this.getPiece().toString();
         }
         else {
             return this.getPiece().toString().toLowerCase();
