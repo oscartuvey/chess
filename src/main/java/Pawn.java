@@ -20,16 +20,18 @@ public class Pawn extends Piece {
         for (int move : POSSIBLE_MOVES) {
 
             int newPosition = this.position + (move * this.getColour().getDirection());
-            Square square = board.getSquare(newPosition);
-            Piece piece = square.getPiece();
 
-            if (!isValidMove(newPosition)) { // THis should be preventing this from happen
-                 continue;
+            if (!isValidMove(newPosition)) {
+                continue;
             }
 
-            if (isFirstColumnExclusion(this.position, move) || isEighthColumnExclusion(this.position, move)) {
+            if (isFirstColumnExclusion(this.position, move * this.getColour().getDirection()) ||
+                isEighthColumnExclusion(this.position, move * this.getColour().getDirection())) {
                 continue; // Means oyu dont need the exclusions. This will
             }
+
+            Square square = board.getSquare(newPosition);
+            Piece piece = square.getPiece();
 
             if (move == 8 && !board.getSquare(newPosition).isOccupied()) {
                 if (this.colour.isPromotionSquare(newPosition)) {
@@ -49,9 +51,7 @@ public class Pawn extends Piece {
                         legalMoves.add(new PawnDoubleMove(board, this, newPosition));
                     }
                     else if (!this.getColour().isWhite() && BoardUtility.SECOND_ROW[this.position]) {
-                        legalMoves.add(new PawnDoubleMove(board, this, newPosition)); // This worked when it was just PawnMove
-                        // Work out why PawnDoubleMove doesn't work
-                        // SonarLint suggests making this a method
+                        legalMoves.add(new PawnDoubleMove(board, this, newPosition));
                     }
                 }
 

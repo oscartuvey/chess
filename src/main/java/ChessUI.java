@@ -60,7 +60,14 @@ public class ChessUI extends Application {
         root.getChildren().clear();
 
         for (SquareNode square : squares) {
-            square.drawSquare(board);
+
+            if (board.getSquare(square.getPosition()).isOccupied() &&
+            board.getSquare(square.getPosition()).getPiece() instanceof King) {
+                square.drawKingSquare(board);
+            }
+            else {
+                square.drawSquare(board);
+            }
 
             int i = square.getPosition();
 
@@ -135,7 +142,6 @@ public class ChessUI extends Application {
                 else if (event.getButton() == MouseButton.PRIMARY) {
                     // He adds attributes fo sourcetile, destinationtile, and humanmovedpiece
                     if (source == null) {
-                        // first click (remove this and below)
                         source = board.getSquare(position);
 
                         movedPiece = source.getPiece();
@@ -182,6 +188,21 @@ public class ChessUI extends Application {
             };
         }
 
+        public void drawKingSquare(Board board) {
+
+            if ((board.getBlackPlayer().inCheck() && !board.getSquare(this.position).getPiece().getColour().isWhite()) ||
+                (board.getWhitePlayer().inCheck() && board.getSquare(this.position).getPiece().getColour().isWhite())) {
+                this.getChildren().clear();
+                setKingColor();
+                setPiece(board);
+                showLegalMoves(board);
+
+            }
+            else {
+                drawSquare(board);
+            }
+        }
+
         public void drawSquare(Board board) {
             this.getChildren().clear();
             setColour();
@@ -193,6 +214,11 @@ public class ChessUI extends Application {
         public void setColour() {
             this.square.setFill((this.position % BoardUtility.NUM_COLS + this.position / BoardUtility.NUM_ROWS) % 2 == 0 ? Color.TAN : Color.SADDLEBROWN);
             this.getChildren().add(this.square); // Maybe need to clear everything from the node first
+        }
+
+        public void setKingColor() {
+            this.square.setFill(Color.RED);
+            this.getChildren().add(this.square);
         }
 
         public void setPiece(Board board) {
@@ -214,13 +240,25 @@ public class ChessUI extends Application {
 
             for (Move move : findLegalMoves(board)) {
                 if (move.getNewPosition() == this.position) {
-                    System.out.println(this.position); // Its trying to show a dot on a square with a piece already and crashing
-                    String pngFile = "greenDot.png";
-                    InputStream filePath = this.getClass().getResourceAsStream(pngFile);
-                    Image image = new Image(filePath, RECTANGLE_WIDTH / 2, RECTANGLE_HEIGHT / 2, false, false);
-                    this.imageView.setImage(image);
-                    // This is adding two things to the bishop at once
-                    this.getChildren().add(this.imageView);
+
+                    if (board.getSquare(this.getPosition()).isOccupied() &&
+                        !board.getSquare(this.getPosition()).getPiece().isKing()) {
+                        this.getSquare().setFill(Color.GREEN);
+                    }
+                    else {
+                        try{
+                            String pngFile = "greenDot.png";
+                            InputStream filePath = this.getClass().getResourceAsStream(pngFile);
+                            Image image = new Image(filePath, RECTANGLE_WIDTH, RECTANGLE_HEIGHT, false, false);
+                            this.imageView.setImage(image);
+                            this.getChildren().add(this.imageView);
+                        }
+                        // TODO this should eventually be removed
+
+                        catch(IllegalArgumentException e) {
+                            System.out.println("Testing");
+                        }
+                    }
                 }
             }
         }
@@ -232,6 +270,10 @@ public class ChessUI extends Application {
             else {
                 return Collections.emptyList();
             } // TODO  refactor!!!
+        }
+
+        public Rectangle getSquare() {
+            return this.square;
         }
     }
 }

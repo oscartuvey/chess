@@ -19,13 +19,11 @@ public class Bishop extends Piece {
         final List<Move> legalMoves = new ArrayList<>();
 
         for (int vector : POSSIBLE_MOVES_VECTOR) {
-            System.out.println("Bishop initial position " + this.position);
             int newPosition = this.position + vector;
-            System.out.println("Bishop initial position " + this.position + " new position " + newPosition);
 
             while (isValidMove(newPosition)) {
 
-                if (isFirstColumnExclusion(position, vector) || isEighthColumnExclusion(position, vector)) {
+                if (isFirstColumnExclusion(newPosition, vector) || isEighthColumnExclusion(newPosition, vector)) {
                     break;
                 }
 
@@ -34,17 +32,15 @@ public class Bishop extends Piece {
                 if (isValidMove(newPosition)) { //isValidSquare is wrong look at knight
                     if(!square.isOccupied()) {
                         legalMoves.add(new PieceMove(board, this, newPosition)); // Check this is right
-                        System.out.println("added" + " " + position + " " + newPosition);
                     }
                     else {
                         Piece piece = square.getPiece();
                         Colour colour = piece.getColour();
 
                         if (this.colour != colour) {
-                            System.out.println("Capture added" + " " + position + " " + newPosition); // Same moved being added? The same dot added over and over again
                             legalMoves.add(new PieceCaptureMove(board, this, newPosition, piece)); // REvisit #6
                         }
-                        break;
+                        break; // Its gonna break even if its a piece of a different colour
                     }
                 }
                 newPosition += vector;

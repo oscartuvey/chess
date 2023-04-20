@@ -61,6 +61,10 @@ public abstract class Piece {
     }
 
     public abstract Piece movePiece(Move move); // This creates a new piece, rather than actually just changing the piece
+
+    public boolean isKing() {
+        return false;
+    }
     // position
 
     public enum PieceType {

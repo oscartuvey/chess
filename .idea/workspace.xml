@@ -4,22 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="90f5d5cd-5717-4fd5-8971-9d9ce02806cb" name="Changes" comment="Added en Passant, fixed a few bugs, and added in a few custom exceptions.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/PawnMovePromotion.java" afterDir="false" />
+    <list default="true" id="90f5d5cd-5717-4fd5-8971-9d9ce02806cb" name="Changes" comment="Pawn promotions added.">
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bishop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BoardUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BoardUtility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ChessUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ChessUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Colour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Colour.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Knight.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Pawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PawnDoubleMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PawnDoubleMove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/greenDot.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/greenDot.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +114,7 @@
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
+        <option name="scriptParameters" value="--scan" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -180,7 +181,9 @@
       <workItem from="1681813395839" duration="2416000" />
       <workItem from="1681815831204" duration="8395000" />
       <workItem from="1681827018426" duration="8958000" />
-      <workItem from="1681854839260" duration="24833000" />
+      <workItem from="1681854839260" duration="36600000" />
+      <workItem from="1681941573552" duration="4448000" />
+      <workItem from="1681951841784" duration="7658000" />
     </task>
     <task id="LOCAL-00001" summary="Most backend classes completed.">
       <created>1680168536876</created>
@@ -224,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681916757526</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Pawn promotions added.">
+      <created>1681929557887</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1681929557887</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,7 +257,8 @@
     <MESSAGE value="Rewrote ChessUI." />
     <MESSAGE value="More changes :')" />
     <MESSAGE value="Added en Passant, fixed a few bugs, and added in a few custom exceptions." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added en Passant, fixed a few bugs, and added in a few custom exceptions." />
+    <MESSAGE value="Pawn promotions added." />
+    <option name="LAST_COMMIT_MESSAGE" value="Pawn promotions added." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

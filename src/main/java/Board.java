@@ -133,7 +133,7 @@ public class Board {
     }
 
 
-    public Square getSquare(int position) {
+    public Square getSquare(int position) throws ArrayIndexOutOfBoundsException {
         return gameState.get(position);
     }
 

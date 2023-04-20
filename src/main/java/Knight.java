@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Knight extends Piece {
 
-    private final static int[] POSSIBLE_MOVES = {-17, -15, -10, -6, 6, 10, 15, 17}; // Check
+    private final static int[] POSSIBLE_MOVES = {-17, -15, -10, -6, 6, 10, 15, 17};
 
     public Knight(int position, Colour colour) {
         super(position, colour, PieceType.KNIGHT, true);
@@ -27,8 +27,10 @@ public class Knight extends Piece {
                 if (isFirstColumnExclusion(this.position, move) || isSecondColumnExclusion(this.position, move) // Im not sure this is right
                 || isSeventhColumnExclusion(this.position, move) || isEighthColumnExclusion(this.position, move)) {
                     // Why does this not include column exclusions for all the other columns??
-                    break; // Check break works properly
+                    continue; // Check break works properly
                 }
+
+
 
                 Square square = board.getSquare(newPosition);
 
