@@ -1,7 +1,5 @@
 public class CaptureMove extends Move {
 
-
-    // TODO complete this class - the captured piece should be removed from activePieces, a few other things as well
     final Piece capturedPiece;
 
     public CaptureMove(Board board, Piece piece, int newPosition, Piece capturedPiece) {
@@ -37,7 +35,6 @@ public class CaptureMove extends Move {
         }
         CaptureMove otherCaptureMove = (CaptureMove) obj;
 
-        // Check this return statement is right
         return super.equals(otherCaptureMove) && getCapturedPiece().equals(otherCaptureMove.getCapturedPiece());
     }
 

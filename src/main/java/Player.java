@@ -13,11 +13,11 @@ public abstract class Player {
         this.board = board;
         this.king = initialiseKing();
         this.legalMoves = legalMoves;
-        this.legalMoves.addAll(calculateKingCastles(legalMoves, opponentMoves)); // This could be wrong
+        this.legalMoves.addAll(calculateKingCastles(legalMoves, opponentMoves));
         this.inCheck = !Player.calculateAttacksOnTile(this.king.getPosition(), opponentMoves).isEmpty();
     }
 
-    //TODO check if this method is only used to check checks in which case rename it
+
     public static Collection<Move> calculateAttacksOnTile(int position, Collection<Move> moves) {
         List<Move> attackMoves = new ArrayList<>();
 
@@ -89,7 +89,7 @@ public abstract class Player {
 
         Board newBoard = move.execute();
 
-        Collection<Move> kingAttacks = // Finds the attacks on the opposing king
+        Collection<Move> kingAttacks =
                 Player.calculateAttacksOnTile(newBoard.currentPlayer().getPlayer().getKing().getPosition(),
                 newBoard.currentPlayer().getLegalMoves());
 

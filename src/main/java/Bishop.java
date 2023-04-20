@@ -36,7 +36,7 @@ public class Bishop extends Piece {
                 Square square = board.getSquare(newPosition);
 
                 if(!square.isOccupied()) {
-                    legalMoves.add(new PieceMove(board, this, newPosition)); // Check this is right
+                    legalMoves.add(new PieceMove(board, this, newPosition));
                 }
                 else {
                     Piece piece = square.getPiece();
@@ -45,8 +45,7 @@ public class Bishop extends Piece {
                     if (this.colour != colour) {
                         legalMoves.add(new PieceCaptureMove(board, this, newPosition, piece)); // REvisit #6
                     }
-                    break; // Its gonna break even if its a piece of a different colour
-                        // Should this be break or continue?
+                    break;
                 }
 
             }
@@ -60,10 +59,6 @@ public class Bishop extends Piece {
     public String toString() {
         return PieceType.BISHOP.toString();
     }
-
-
-    // Can precompute all the possible bishops
-    // # 22  5:00
 
     @Override
     public Piece movePiece(Move move) {
@@ -79,6 +74,6 @@ public class Bishop extends Piece {
     }
 
     private boolean isValidMove(int position) {
-        return position >= 0 && position < 64; // Redo this to make it available elsewhere
+        return position >= 0 && position < 64;
     }
 }

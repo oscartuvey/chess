@@ -24,23 +24,22 @@ public class Knight extends Piece {
 
             if (isValidMove(newPosition)) {
 
-                if (isFirstColumnExclusion(this.position, move) || isSecondColumnExclusion(this.position, move) // Im not sure this is right
+                if (isFirstColumnExclusion(this.position, move) || isSecondColumnExclusion(this.position, move)
                 || isSeventhColumnExclusion(this.position, move) || isEighthColumnExclusion(this.position, move)) {
-                    // Why does this not include column exclusions for all the other columns??
-                    continue; // Check break works properly
+                    continue;
                 }
 
                 Square square = board.getSquare(newPosition);
 
                 if(!square.isOccupied()) {
-                    legalMoves.add(new PieceMove(board, this, newPosition)); // Check this is right
+                    legalMoves.add(new PieceMove(board, this, newPosition));
                 }
                 else {
                     Piece piece = square.getPiece();
                     Colour colour = piece.getColour();
 
                     if (this.colour != colour) {
-                        legalMoves.add(new PieceCaptureMove(board, this, newPosition, piece)); // Revisit # 6 to check this is corredct
+                        legalMoves.add(new PieceCaptureMove(board, this, newPosition, piece));
                     }
                 }
             }
@@ -60,10 +59,10 @@ public class Knight extends Piece {
     }
 
     private boolean isValidMove(int position) {
-        return position >= 0 && position < 64; // Redo this to make it available elsewhere
+        return position >= 0 && position < 64;
     }
 
-    private static boolean isFirstColumnExclusion(int position, int move) { // Change var names
+    private static boolean isFirstColumnExclusion(int position, int move) {
 
         return BoardUtility.FIRST_COLUMN[position] && ((move == -17) || (move == -10)
                 || (move == 6) || (move == 15));

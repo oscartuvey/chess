@@ -15,7 +15,7 @@ public class PieceCaptureMove extends CaptureMove {
         }
         PieceCaptureMove otherPieceCaptureMove = (PieceCaptureMove) obj;
 
-        // Check this return statement is right
+
         return super.equals(otherPieceCaptureMove) && getCapturedPiece().equals(otherPieceCaptureMove.getCapturedPiece());
 
     }

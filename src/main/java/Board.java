@@ -29,7 +29,7 @@ public class Board {
     public static Board initialiseBoard() {
         Builder builder = new Builder();
 
-        // Black
+
         builder.setPiece(new Rook(0, Colour.BLACK));
         builder.setPiece(new Knight(1, Colour.BLACK));
         builder.setPiece(new Bishop(2, Colour.BLACK));
@@ -46,7 +46,7 @@ public class Board {
         builder.setPiece(new Pawn(13, Colour.BLACK));
         builder.setPiece(new Pawn(14, Colour.BLACK));
         builder.setPiece(new Pawn(15, Colour.BLACK));
-        // White
+
         builder.setPiece(new Pawn(48, Colour.WHITE));
         builder.setPiece(new Pawn(49, Colour.WHITE));
         builder.setPiece(new Pawn(50, Colour.WHITE));
@@ -63,9 +63,9 @@ public class Board {
         builder.setPiece(new Bishop(61, Colour.WHITE));
         builder.setPiece(new Knight(62, Colour.WHITE));
         builder.setPiece(new Rook(63, Colour.WHITE));
-        //white to move
+
         builder.setMoveMaker(Colour.WHITE);
-        //build the board
+
         return builder.build();
     }
 
@@ -73,7 +73,7 @@ public class Board {
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
 
-        for (int i = 0; i < BoardUtility.NUM_TILES; i++) {
+        for (int i = 0; i < 64; i++) {
             String s = this.gameState.get(i).toString();
             stringBuilder.append(s);
             if ((i + 1) % 8 == 0) {
@@ -105,12 +105,12 @@ public class Board {
         return this.whitePlayer;
     }
 
-    public Pawn getEnPassantPawn() { // this doesnt seem right
+    public Pawn getEnPassantPawn() {
         return this.enPassantPawn;
     }
     private Collection<Move> findLegalMoves(Collection<Piece> pieces) {
         List<Move> legalMoves = new ArrayList<>();
-        // This is seen as static context?
+
         for (Piece piece : pieces) {
             legalMoves.addAll(piece.findLegalMoves(this));
         }
@@ -138,9 +138,9 @@ public class Board {
     }
 
     private static List<Square> createGameState(Builder builder) {
-        Square[] squares = new Square[BoardUtility.NUM_TILES]; // Creates a list with 64 tiles
+        Square[] squares = new Square[64];
 
-        for (int i = 0; i < BoardUtility.NUM_TILES; i++) {
+        for (int i = 0; i < 64; i++) {
             squares[i] = Square.createSquare(i, builder.boardLayout.get(i));
         }
 

@@ -16,7 +16,6 @@ public class CastleMoveKingSide extends CastleMove{
         }
         CastleMoveKingSide otherCastleMoveKingSide = (CastleMoveKingSide) obj;
 
-        // Check this return statement is right
         return super.equals(otherCastleMoveKingSide);
     }
 

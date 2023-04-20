@@ -1,7 +1,5 @@
 public class Outcome {
 
-    // Move transition
-
     private final Board board;
     private final Move move;
     private final Status status;

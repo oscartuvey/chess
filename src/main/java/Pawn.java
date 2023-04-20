@@ -27,7 +27,7 @@ public class Pawn extends Piece {
 
             if (isFirstColumnExclusion(this.position, move * this.getColour().getDirection()) ||
                 isEighthColumnExclusion(this.position, move * this.getColour().getDirection())) {
-                continue; // Means oyu dont need the exclusions. This will
+                continue;
             }
 
             Square square = board.getSquare(newPosition);
@@ -38,7 +38,7 @@ public class Pawn extends Piece {
                     legalMoves.add(new PawnMovePromotion(new PawnMove(board, this, newPosition)));
                 }
                 else {
-                    legalMoves.add(new PawnMove(board, this, newPosition)); // Put this in an else
+                    legalMoves.add(new PawnMove(board, this, newPosition));
                 }
             }
 
@@ -57,8 +57,8 @@ public class Pawn extends Piece {
 
             }
 
-            else if (move == 7 && board.getSquare(newPosition).isOccupied()) { // If this isn't covered by column exclusions
-                // then #43 11:50
+            else if (move == 7 && board.getSquare(newPosition).isOccupied()) {
+
                 if (this.getColour().isWhite() && !(board.getSquare(newPosition).getPiece().getColour().isWhite())) {
                     if (this.colour.isPromotionSquare(newPosition)) {
                         legalMoves.add(new PawnMovePromotion(new PawnMove(board, this, newPosition)));
@@ -76,9 +76,8 @@ public class Pawn extends Piece {
                     }
                 }
                 else if (board.getEnPassantPawn() != null) {
-                    // Multiplying by -1 is the same as finding the opposite direction
-                    // En Passant pawns will be horizontally equal to the pawn capturing it
-                    int enPassantPawnDirection = this.getPosition() + (this.getColour().getDirection() * -1); // Check
+
+                    int enPassantPawnDirection = this.getPosition() + (this.getColour().getDirection() * -1);
                     if (board.getEnPassantPawn().getPosition() == this.getPosition() + (enPassantPawnDirection)) {
                         Piece enPassantPawn = board.getEnPassantPawn();
                         if (this.colour != enPassantPawn.getColour()) {
@@ -105,10 +104,9 @@ public class Pawn extends Piece {
                         legalMoves.add(new PawnCaptureMove(board, this, newPosition, piece));
                     }
                 }
-                // TODO I have a feeling the column exclusions won't catch this so this must be tested
+
                 else if (board.getEnPassantPawn() != null) {
-                    // Multiplying by -1 is the same as finding the opposite direction
-                    // En Passant pawns will be horizontally equal to the pawn capturing it
+
                     int enPassantPawnDirection = this.getPosition() - (this.getColour().getDirection() * -1);
                     if (board.getEnPassantPawn().getPosition() == this.getPosition() + (enPassantPawnDirection)) {
                         Piece enPassantPawn = board.getEnPassantPawn();
@@ -135,15 +133,15 @@ public class Pawn extends Piece {
     }
 
     private boolean isValidMove(int position) {
-        return position >= 0 && position < 64; // Redo this to make it available elsewhere
+        return position >= 0 && position < 64;
     }
 
     private static boolean isFirstColumnExclusion(int position, int vector) {
-        return BoardUtility.FIRST_COLUMN[position] && (vector == -9 || vector == -1 || vector == 7); // Check this works
+        return BoardUtility.FIRST_COLUMN[position] && (vector == -9 || vector == -1 || vector == 7);
     }
 
     private static boolean isEighthColumnExclusion(int position, int vector) {
-        return BoardUtility.EIGHTH_COLUMN[position] && (vector == 9 || vector == 1 || vector == -7); // -7?
+        return BoardUtility.EIGHTH_COLUMN[position] && (vector == 9 || vector == 1 || vector == -7);
     }
 
     public Piece getPromotionPiece() {

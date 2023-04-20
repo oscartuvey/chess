@@ -37,7 +37,7 @@ public abstract class CastleMove extends Move {
 
         builder.setPiece(this.piece.movePiece(this));
 
-        // TODO fix this setPiece part
+
         builder.setPiece(new Rook(this.rookDestination, this.rook.getColour()));
         builder.setMoveMaker(this.board.currentPlayer().getPlayer().getColour());
 
@@ -57,7 +57,6 @@ public abstract class CastleMove extends Move {
         }
         CastleMove otherCastleMove = (CastleMove) obj;
 
-        // Check this return statement is right and in other cases
         return super.equals(otherCastleMove) && this.rook.equals(otherCastleMove.getRook());
     }
 }

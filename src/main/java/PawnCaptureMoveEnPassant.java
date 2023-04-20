@@ -16,7 +16,7 @@ public class PawnCaptureMoveEnPassant extends PawnCaptureMove {
         }
         PawnCaptureMoveEnPassant otherPawnCaptureMoveEnPassant = (PawnCaptureMoveEnPassant) obj;
 
-        // Check this return statement is right
+
         return super.equals(otherPawnCaptureMoveEnPassant) &&
                 getCapturedPiece().equals(otherPawnCaptureMoveEnPassant.getCapturedPiece());
     }
@@ -25,21 +25,20 @@ public class PawnCaptureMoveEnPassant extends PawnCaptureMove {
     public Board execute() {
         Board.Builder builder = new Board.Builder();
 
-        for (Piece p : this.board.currentPlayer().getPieces()) { // Check these are the active pieces. Check implementation
-            // in other classes
+        for (Piece p : this.board.currentPlayer().getPieces()) {
+
             if (!this.piece.equals(p)) {
                 builder.setPiece(p);
             }
         }
 
-        // Check these have been doen right in other instances too
         for (Piece p : board.currentPlayer().getPlayer().getPieces()) {
             if (!p.equals(this.getCapturedPiece())) {
                 builder.setPiece(p);
             }
         }
         builder.setPiece(this.piece.movePiece(this));
-        builder.setMoveMaker(this.board.currentPlayer().getPlayer().getColour()); // Check this is right
+        builder.setMoveMaker(this.board.currentPlayer().getPlayer().getColour());
 
         return builder.build();
     }

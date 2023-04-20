@@ -11,7 +11,6 @@ public abstract class Piece {
     Piece(final int position, final Colour colour, final PieceType type, boolean isFirstMove) {
         this.position = position;
         this.colour = colour;
-        // TODO more work here
         this.isFirstMove = isFirstMove;
         this.type = type;
     }
@@ -42,7 +41,7 @@ public abstract class Piece {
         return Objects.hash(type, position, colour, isFirstMove);
     }
 
-    // This is the next thing to do
+
     public boolean isFirstMove() {
         return this.isFirstMove;
     }
@@ -60,12 +59,11 @@ public abstract class Piece {
         return this.type;
     }
 
-    public abstract Piece movePiece(Move move); // This creates a new piece, rather than actually just changing the piece
+    public abstract Piece movePiece(Move move);
 
     public boolean isKing() {
         return false;
     }
-    // position
 
     public enum PieceType {
 

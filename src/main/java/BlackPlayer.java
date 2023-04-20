@@ -5,9 +5,8 @@ import java.util.List;
 public class BlackPlayer extends Player {
 
     public BlackPlayer(Board board, Collection<Move> whiteLegalMoves, Collection<Move> blackLegalMoves) {
-        super(board, blackLegalMoves, whiteLegalMoves); // Swapped round white and black deliberately
+        super(board, blackLegalMoves, whiteLegalMoves);
     }
-
 
     @Override
     public Collection<Piece> getPieces() {
@@ -32,7 +31,6 @@ public class BlackPlayer extends Player {
             if (!this.board.getSquare(5).isOccupied() && !this.board.getSquare(6).isOccupied()) {
                 Square rookSquare = this.board.getSquare(7);
 
-                // Can compound this if statement (same applies below)
                 if (rookSquare.isOccupied() && rookSquare.getPiece().isFirstMove()) {
                     if (Player.calculateAttacksOnTile(5, opponentLegals).isEmpty() &&
                             Player.calculateAttacksOnTile(6, opponentLegals).isEmpty() &&
@@ -47,7 +45,6 @@ public class BlackPlayer extends Player {
                             5));
                 }
             }
-            // Difference between isFirstMove and isFirstMove()?
             if (!this.board.getSquare(1).isOccupied() && !this.board.getSquare(2).isOccupied() &&
                     !this.board.getSquare(3).isOccupied()) {
                 Square rookSquare = this.board.getSquare(0);

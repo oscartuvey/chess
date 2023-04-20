@@ -1,4 +1,3 @@
-import java.util.Map;
 
 public class BoardUtility {
 
@@ -22,7 +21,7 @@ public class BoardUtility {
 
     public static final boolean[] EIGHTH_ROW = initRow(56);
 
-    private static boolean[] initColumn(int columnNumber) { // rename vars
+    private static boolean[] initColumn(int columnNumber) {
         final boolean[] column = new boolean[64];
 
         do {
@@ -40,7 +39,7 @@ public class BoardUtility {
             row[rowNumber] = true;
             rowNumber++;
         }
-        while ((rowNumber % 8) != 0); // This might be wrong
+        while ((rowNumber % 8) != 0);
 
         return row;
     }

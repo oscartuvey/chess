@@ -11,7 +11,7 @@ public class PawnMovePromotion extends Move {
 
     @Override
     public Board execute() {
-        // Call execute on the pawn promotion move
+
         Board board = this.move.execute();
         Board.Builder builder = new Board.Builder();
         for (Piece piece : board.currentPlayer().getPieces()) {
@@ -24,7 +24,7 @@ public class PawnMovePromotion extends Move {
         }
         builder.setPiece(this.pawn.getPromotionPiece().movePiece(this));
 
-        builder.setMoveMaker(board.currentPlayer().getColour()); // Surely its the opponents turn?
+        builder.setMoveMaker(board.currentPlayer().getColour());
         return builder.build();
     }
 
@@ -48,9 +48,9 @@ public class PawnMovePromotion extends Move {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        PawnMovePromotion otherPawnMovePromotion = (PawnMovePromotion) obj; // Why is it called other?
+        PawnMovePromotion otherPawnMovePromotion = (PawnMovePromotion) obj;
 
-        // Check this return statement is right.
+
         return super.equals(otherPawnMovePromotion);
     }
 

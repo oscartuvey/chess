@@ -36,14 +36,14 @@ public class Queen extends Piece {
                 Square square = board.getSquare(newPosition);
 
                 if(!square.isOccupied()) {
-                    legalMoves.add(new PieceMove(board, this, newPosition)); // Check this is right
+                    legalMoves.add(new PieceMove(board, this, newPosition));
                 }
                 else {
                     Piece piece = square.getPiece();
                     Colour colour = piece.getColour();
 
                     if (this.colour != colour) {
-                        legalMoves.add(new PieceCaptureMove(board, this, newPosition, piece)); // #6
+                        legalMoves.add(new PieceCaptureMove(board, this, newPosition, piece));
                     }
                     break;
                 }
@@ -72,6 +72,6 @@ public class Queen extends Piece {
     }
 
     private boolean isValidMove(int position) {
-        return position >= 0 && position < 64; // Redo this to make it available elsewhere
+        return position >= 0 && position < 64;
     }
 }

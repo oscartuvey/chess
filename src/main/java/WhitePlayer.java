@@ -26,11 +26,11 @@ public class WhitePlayer extends Player {
     protected Collection<Move> calculateKingCastles(Collection<Move> playerLegals, Collection<Move> opponentLegals) {
 
         List<Move> kingCastles = new ArrayList<>();
-        // WHITES KING SIDE CASTLE. This class redo it
+
         if (this.king.isFirstMove() && !this.inCheck()) {
             if (!this.board.getSquare(61).isOccupied() && !this.board.getSquare(62).isOccupied()) {
                 Square rookSquare = this.board.getSquare(63);
-                // Can compound this if statement (same applies below)
+
                 if (rookSquare.isOccupied() && rookSquare.getPiece().isFirstMove()) {
                     if (Player.calculateAttacksOnTile(61, opponentLegals).isEmpty() &&
                         Player.calculateAttacksOnTile(62, opponentLegals).isEmpty() &&
@@ -45,7 +45,7 @@ public class WhitePlayer extends Player {
                             61));
                 }
             }
-            // Difference between isFirstMove and isFirstMove()? Why do  I need them both exactly?
+
             if (!this.board.getSquare(59).isOccupied() && !this.board.getSquare(58).isOccupied() &&
             !this.board.getSquare(57).isOccupied()) {
                 Square rookSquare = this.board.getSquare(56);
@@ -53,7 +53,7 @@ public class WhitePlayer extends Player {
                         Player.calculateAttacksOnTile(58, opponentLegals).isEmpty() &&
                         Player.calculateAttacksOnTile(59, opponentLegals).isEmpty() &&
                         rookSquare.getPiece().getType().isRook()) {
-                    //TODO add castle move
+
                     kingCastles.add(new CastleMoveQueenSide(this.board,
                             this.king,
                             58,

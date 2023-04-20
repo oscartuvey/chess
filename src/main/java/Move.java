@@ -32,41 +32,29 @@ public abstract class Move {
         return this.newPosition;
     }
 
-    // Call location and destination when changing the names
     public int getPosition() {
         return this.piece.getPosition();
     }
 
     public Board execute() {
-        // Go through all of current player's pieces
-        // Set pieces on the outbound board which arent the current moved piece
-        // Do the same thing for othe rplayer
-        // Since they don thave a moved piece you can just iterate through the pieves without
-        // checking for the moved piece
 
 
         Board.Builder builder = new Board.Builder();
-        // piece represents the moved piece
-        // piece1 represents the piece of the current player
-        for (Piece p : this.board.currentPlayer().getPieces()) { // rename piece1
 
-            if (!this.piece.equals(p)) { // THis cant be righ
+        for (Piece p : this.board.currentPlayer().getPieces()) {
+
+            if (!this.piece.equals(p)) {
                 builder.setPiece(p);
             }
         }
 
-        // write method called to all active pieces
-        // piece2 represents the piece of the opposing player
-        // getPlayer() means get opponent()
         for (Piece p : this.board.currentPlayer().getPlayer().getPieces()) {
             builder.setPiece(p);
         }
 
-        // Move the moved piece
-        builder.setPiece(this.piece.movePiece(this)); // 'piece' here represents the moved peice
+        builder.setPiece(this.piece.movePiece(this));
 
-        // sets the move maker to be the other player
-        builder.setMoveMaker(this.board.currentPlayer().getPlayer().getColour()); // Refactor these names as they are confusing
+        builder.setMoveMaker(this.board.currentPlayer().getPlayer().getColour());
 
         return builder.build();
     }
@@ -82,7 +70,7 @@ public abstract class Move {
     @Override
     public int hashCode() {
         return Objects.hash(board, piece, newPosition, isFirstMove);
-    } //  #37 15:00
+    }
 
     @Override
     public boolean equals(Object obj) {
@@ -97,10 +85,9 @@ public abstract class Move {
         }
         Move otherMove = (Move) obj;
 
-        // Check this return statement is right (see above reference)
         return this.getPosition() == otherMove.getPosition() &&
                 piece == otherMove.getPiece() &&
-                newPosition == otherMove.getNewPosition(); // check
+                newPosition == otherMove.getNewPosition();
     }
 
     public boolean isAttack() {

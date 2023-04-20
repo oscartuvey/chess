@@ -56,10 +56,10 @@ public class King extends Piece {
     }
 
     private boolean isValidMove(int position) {
-        return position >= 0 && position < 64; // Redo this to make it available elsewhere
+        return position >= 0 && position < 64;
     }
 
-    private static boolean isFirstColumnExclusion(int position, int move) { // Change var names
+    private static boolean isFirstColumnExclusion(int position, int move) {
 
         return BoardUtility.FIRST_COLUMN[position] && ((move == 1) || (move == -7) || (move == 9));
     }

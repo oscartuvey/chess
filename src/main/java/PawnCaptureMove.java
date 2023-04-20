@@ -15,12 +15,9 @@ public class PawnCaptureMove extends CaptureMove {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        PawnCaptureMove otherPawnCaptureMove = (PawnCaptureMove) obj; // Why is it called other?
+        PawnCaptureMove otherPawnCaptureMove = (PawnCaptureMove) obj;
 
-        // Check this return statement is right. Does it not check for the captured piece?
         return super.equals(otherPawnCaptureMove) && getCapturedPiece().equals(otherPawnCaptureMove.getCapturedPiece());
     }
-
-    // TODO remove all unnecessary toString() methods in all classes
 
 }

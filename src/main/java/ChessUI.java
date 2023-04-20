@@ -39,9 +39,9 @@ public class ChessUI extends Application {
         root.setVgap(0.0);
 
         for (int i = 0; i < 64; i++) {
-            SquareNode square = new SquareNode(i); // add to list too
+            SquareNode square = new SquareNode(i);
 
-            this.squares.add(square); // Check this is okay and work out if it's even necessary
+            this.squares.add(square);
 
             root.add(square, i % BoardUtility.NUM_COLS, i / BoardUtility.NUM_ROWS);
         }
@@ -71,7 +71,6 @@ public class ChessUI extends Application {
 
             int i = square.getPosition();
 
-            // This method is used twice so maybe refactor
             root.add(square, i % BoardUtility.NUM_COLS, i / BoardUtility.NUM_ROWS);
         }
 
@@ -95,7 +94,7 @@ public class ChessUI extends Application {
 
 
         SquareNode(int position) {
-            // Remember to clear previous image off
+
             super();
             this.position = position;
             this.square = new Rectangle(RECTANGLE_WIDTH, RECTANGLE_HEIGHT);
@@ -103,7 +102,7 @@ public class ChessUI extends Application {
             setColour();
             setPiece(board);
 
-            // Might want to change this as it looks weird but keep it for now because it should definitely work
+
             setOnMouseClicked(event -> {
                 if (event.getButton() == MouseButton.SECONDARY) {
                     source = null;
@@ -111,17 +110,17 @@ public class ChessUI extends Application {
                     movedPiece = null;
                 }
                 else if (event.getButton() == MouseButton.PRIMARY) {
-                    // He adds attributes fo sourcetile, destinationtile, and humanmovedpiece
+
                     if (source == null) {
                         source = board.getSquare(position);
 
                         movedPiece = source.getPiece();
-                        if (movedPiece == null) { // If i click on atile and its not an empty tile then assign piece to human moved piece otherwise undo assingment of source tile
+                        if (movedPiece == null) {
                             source = null;
                         }
                     }
                     else {
-                        // second click. Explain this to self
+
                         destination = board.getSquare(position);
                         Move move = MoveFactory.createMove(board, source.getSquarePosition(), destination.getSquarePosition());
                         Outcome outcome = board.currentPlayer().makeMove(move);
@@ -129,7 +128,6 @@ public class ChessUI extends Application {
                             board = outcome.getBoard();
                         }
 
-                        // This could be refactored as this is used multiple times
                         source = null;
                         destination = null;
                         movedPiece = null;
@@ -178,14 +176,14 @@ public class ChessUI extends Application {
 
             this.getChildren().clear();
             setColour();
-            setPiece(board); // It's probably because you don't remove
+            setPiece(board);
             showLegalMoves(board);
 
         }
 
         public void setColour() {
             this.square.setFill((this.position % BoardUtility.NUM_COLS + this.position / BoardUtility.NUM_ROWS) % 2 == 0 ? Color.SADDLEBROWN : Color.TAN);
-            this.getChildren().add(this.square); // Maybe need to clear everything from the node first
+            this.getChildren().add(this.square);
         }
 
         public void setKingColor() {
@@ -196,7 +194,7 @@ public class ChessUI extends Application {
         public void setPiece(Board board) {
             if (board.getSquare(this.position).isOccupied()) {
                 String pngFile = renderPiece(board.getSquare(this.position).toString());
-                // Exception if filePath is null
+
                 InputStream filePath = this.getClass().getResourceAsStream(pngFile);
                 Image image = new Image(filePath, RECTANGLE_WIDTH, RECTANGLE_HEIGHT, false, false);
                 this.imageView.setImage(image);

@@ -5,7 +5,7 @@ public class InvalidMove extends Move{
 
     @Override
     public Board execute() {
-        throw new InvalidMoveException("Invalid move."); // TODO create an exception class for this
+        throw new InvalidMoveException("Invalid move.");
     }
 
     @Override

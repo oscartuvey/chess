@@ -15,9 +15,8 @@ public class PawnMove extends Move {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        PawnMove otherPawnMove = (PawnMove) obj; // Why is it called other?
+        PawnMove otherPawnMove = (PawnMove) obj;
 
-        // Check this return statement is right.
         return super.equals(otherPawnMove);
     }
 
