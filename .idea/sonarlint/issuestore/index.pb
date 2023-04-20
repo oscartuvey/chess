@@ -32,12 +32,8 @@ R
 +src/main/java/PawnCaptureMoveEnPassant.java,3/4/349dbed27a71cf766dc41f2c19543a4fed1a55a6
 S
 #src/main/java/PieceCaptureMove.java,b/a/ba92ec86c1093ebba0972c104561c46007a51495
-H
-src/main/java/Queen.java,1/b/1b658a41345d2cd97f7762e0840b18edab36c5ab
 K
 src/main/java/PawnMove.java,9/b/9b95adc71c8b3d14e1ca94d45c494b1a7bc4d660
-I
-src/main/java/Colour.java,3/5/359c2b14f2db4c245aa24b1869fa4f2b26ef923c
 Q
 !src/main/java/PawnDoubleMove.java,7/c/7c5fa7b44bdd6ad4d8c2ff85bd9ed7d51d066b33
 T

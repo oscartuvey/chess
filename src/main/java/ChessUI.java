@@ -212,7 +212,7 @@ public class ChessUI extends Application {
         }
 
         public void setColour() {
-            this.square.setFill((this.position % BoardUtility.NUM_COLS + this.position / BoardUtility.NUM_ROWS) % 2 == 0 ? Color.TAN : Color.SADDLEBROWN);
+            this.square.setFill((this.position % BoardUtility.NUM_COLS + this.position / BoardUtility.NUM_ROWS) % 2 == 0 ? Color.SADDLEBROWN : Color.TAN);
             this.getChildren().add(this.square); // Maybe need to clear everything from the node first
         }
 
@@ -246,19 +246,12 @@ public class ChessUI extends Application {
                         this.getSquare().setFill(Color.GREEN);
                     }
                     else {
-                        try{
-                            String pngFile = "greenDot.png";
-                            InputStream filePath = this.getClass().getResourceAsStream(pngFile);
-                            Image image = new Image(filePath, RECTANGLE_WIDTH, RECTANGLE_HEIGHT, false, false);
-                            this.imageView.setImage(image);
-                            this.getChildren().add(this.imageView);
-                        }
-                        // TODO this should eventually be removed
-
-                        catch(IllegalArgumentException e) {
-                            System.out.println("Testing");
-                        }
-                    }
+                        String pngFile = "greenDot.png";
+                        InputStream filePath = this.getClass().getResourceAsStream(pngFile);
+                        Image image = new Image(filePath, RECTANGLE_WIDTH, RECTANGLE_HEIGHT, false, false);
+                        this.imageView.setImage(image);
+                        this.getChildren().add(this.imageView);
+                     }
                 }
             }
         }

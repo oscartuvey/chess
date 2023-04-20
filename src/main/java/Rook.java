@@ -18,12 +18,18 @@ public class Rook extends Piece {
         final List<Move> legalMoves = new ArrayList<>();
 
         for (int vector : POSSIBLE_MOVES_VECTOR) {
-            int newPosition = this.position + vector;// Does this mean it can move to its current position?
+            int newPosition = this.position;
 
             while (isValidMove(newPosition)) {
 
-                if (isFirstColumnExclusion(position, vector) || isEighthColumnExclusion(position, vector)) {
+                if (isFirstColumnExclusion(newPosition, vector) || isEighthColumnExclusion(newPosition, vector)) {
                     break;
+                }
+
+                newPosition += vector;
+
+                if (!isValidMove(newPosition)) {
+                    continue;
                 }
 
                 Square square = board.getSquare(newPosition);
@@ -40,8 +46,6 @@ public class Rook extends Piece {
                     }
                     break;
                 }
-
-                newPosition += vector;
             }
         }
 

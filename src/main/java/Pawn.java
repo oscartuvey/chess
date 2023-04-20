@@ -34,7 +34,12 @@ public class Pawn extends Piece {
             Piece piece = square.getPiece();
 
             if (move == 8 && !board.getSquare(newPosition).isOccupied()) {
+                if (this.position == 15 && this.colour.isWhite()) {
+                    System.out.println("Promotion ready " + this.position + " " + newPosition);
+                }
+
                 if (this.colour.isPromotionSquare(newPosition)) {
+                    System.out.println("Promotion"); // TODO remove this
                     legalMoves.add(new PawnMovePromotion(new PawnMove(board, this, newPosition)));
                 }
                 else {
@@ -90,10 +95,20 @@ public class Pawn extends Piece {
 
             else if (move == 9 && board.getSquare(newPosition).isOccupied()) {
                 if (this.getColour().isWhite() && !(board.getSquare(newPosition).getPiece().getColour().isWhite())) {
-                    legalMoves.add(new PawnCaptureMove(board, this, newPosition, piece));
+                    if (this.colour.isPromotionSquare(newPosition)) {
+                        legalMoves.add(new PawnMovePromotion(new PawnMove(board, this, newPosition)));
+                    }
+                    else {
+                        legalMoves.add(new PawnCaptureMove(board, this, newPosition, piece));
+                    }
                 }
                 else if (!(this.getColour().isWhite()) && board.getSquare(newPosition).getPiece().getColour().isWhite()) {
-                    legalMoves.add(new PawnCaptureMove(board, this, newPosition, piece));
+                    if (this.colour.isPromotionSquare(newPosition)) {
+                        legalMoves.add(new PawnMovePromotion(new PawnMove(board, this, newPosition)));
+                    }
+                    else {
+                        legalMoves.add(new PawnCaptureMove(board, this, newPosition, piece));
+                    }
                 }
                 // TODO I have a feeling the column exclusions won't catch this so this must be tested
                 else if (board.getEnPassantPawn() != null) {
