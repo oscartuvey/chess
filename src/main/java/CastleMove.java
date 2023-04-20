@@ -25,19 +25,17 @@ public abstract class CastleMove extends Move {
     public Board execute() {
         Board.Builder builder = new Board.Builder();
 
-        for (Piece piece : this.board.currentPlayer().getPieces()) { // Change the var names this is confusing
+        for (Piece piece : this.board.currentPlayer().getPieces()) {
             if (!this.piece.equals(piece) && !this.rook.equals(piece)) {
                 builder.setPiece(piece);
             }
         }
 
-        // getPlayer() means opponent and this needs to change
-
         for (Piece piece : this.board.currentPlayer().getPlayer().getPieces()) {
             builder.setPiece(piece);
         }
 
-        builder.setPiece(this.piece.movePiece(this)); // Check this 'piece' is actually the movedPiece
+        builder.setPiece(this.piece.movePiece(this));
 
         // TODO fix this setPiece part
         builder.setPiece(new Rook(this.rookDestination, this.rook.getColour()));
@@ -46,8 +44,6 @@ public abstract class CastleMove extends Move {
         return builder.build();
     }
 
-
-    // TODO do I need a hashcode method?
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

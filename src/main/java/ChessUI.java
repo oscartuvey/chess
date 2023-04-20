@@ -20,16 +20,16 @@ public class ChessUI extends Application {
     private static final int RECTANGLE_HEIGHT = 90;
     private Board board;
     private List<SquareNode> squares;
-
     private Square source;
     private Square destination;
     private Piece movedPiece;
-
     private GridPane root;
-
+    private Stage primaryStage;
 
     @Override
     public void start(Stage stage) {
+
+        this.primaryStage = new Stage();
 
         this.squares = new ArrayList<>();
         this.board = Board.initialiseBoard();
@@ -48,9 +48,9 @@ public class ChessUI extends Application {
 
         Scene scene = new Scene(root, RECTANGLE_WIDTH * BoardUtility.NUM_COLS, RECTANGLE_HEIGHT * BoardUtility.NUM_ROWS);
 
-        stage.setScene(scene);
-        stage.setTitle("Chess");
-        stage.show();
+        this.primaryStage.setScene(scene);
+        this.primaryStage.setTitle("Chess");
+        this.primaryStage.show();
     }
 
     public void updateBoard(Board board) {
@@ -75,39 +75,10 @@ public class ChessUI extends Application {
             root.add(square, i % BoardUtility.NUM_COLS, i / BoardUtility.NUM_ROWS);
         }
 
-    }
-
-    // Change name and move this somewhere more appropriate
-    public static class Moves { // Could extend the List class or something along those lines. Defo refactor
-
-        private List<Move> moves;
-
-        public Moves() {
-            this.moves = new ArrayList<>();
-        }
-
-        public List<Move> getMoves() {
-            return this.moves;
-        }
-
-        public void add(Move move) {
-            this.moves.add(move);
-        }
-
-        public int size() {
-            return this.moves.size();
-        }
-
-        public void clear() {
-            this.moves.clear();
-        }
-
-        public void remove(Move move) {
-            this.moves.remove(move);
-        }
-
-        public void remove(int index) {
-            this.moves.remove(index);
+        if (board.getWhitePlayer().inCheckMate() || board.getBlackPlayer().inCheckMate()) {
+                this.primaryStage.close();
+                this.primaryStage = new Stage();
+                start(this.primaryStage);
         }
 
     }
@@ -204,6 +175,7 @@ public class ChessUI extends Application {
         }
 
         public void drawSquare(Board board) {
+
             this.getChildren().clear();
             setColour();
             setPiece(board); // It's probably because you don't remove
@@ -257,12 +229,21 @@ public class ChessUI extends Application {
         }
 
         public Collection<Move> findLegalMoves(Board board) {
+
+            List<Move> pieceMoves = new ArrayList<>();
+
             if (movedPiece != null && movedPiece.getColour() == board.currentPlayer().getColour()) {
-                return movedPiece.findLegalMoves(board);
+                for (Move move : board.getAllLegalMoves()) {
+                    if (move.getPiece() == movedPiece) {
+                        pieceMoves.add(move);
+                    }
+                }
+
+                return pieceMoves;
             }
             else {
                 return Collections.emptyList();
-            } // TODO  refactor!!!
+            }
         }
 
         public Rectangle getSquare() {

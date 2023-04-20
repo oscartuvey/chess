@@ -16,8 +16,6 @@ L
 src/main/java/PieceMove.java,0/5/05178bceec41ac00022afb5d1c672a8bd2267ced
 N
 src/main/java/CaptureMove.java,6/e/6e14eb3fc15a35a1a3e273005fb003cb1ce57dd2
-M
-src/main/java/CastleMove.java,0/0/005d3559486e9b7585bcae76046e9196ed048946
 N
 src/main/java/InvalidMove.java,6/c/6c9b3be867de3f7c9c435688bd0863fc19bc0333
 W

@@ -26,18 +26,16 @@ public class BlackPlayer extends Player {
     @Override
     protected Collection<Move> calculateKingCastles(Collection<Move> playerLegals, Collection<Move> opponentLegals) {
 
-        System.out.println("Castles"); // TODO remove
-
         List<Move> kingCastles = new ArrayList<>();
-        // WHITES KING SIDE CASTLE
+        // BLACKS KING SIDE CASTLE
         if (this.king.isFirstMove() && !this.inCheck()) {
             if (!this.board.getSquare(5).isOccupied() && !this.board.getSquare(6).isOccupied()) {
                 Square rookSquare = this.board.getSquare(7);
 
                 // Can compound this if statement (same applies below)
                 if (rookSquare.isOccupied() && rookSquare.getPiece().isFirstMove()) {
-                    if (Player.calculateAttacksOnTile(5, opponentLegals).isEmpty() && //TODO  Why are both tiles being checked
-                            Player.calculateAttacksOnTile(6, opponentLegals).isEmpty() && //TODO  WHy are both tiles being checked
+                    if (Player.calculateAttacksOnTile(5, opponentLegals).isEmpty() &&
+                            Player.calculateAttacksOnTile(6, opponentLegals).isEmpty() &&
                             rookSquare.getPiece().getType().isRook()) {
 
                     }

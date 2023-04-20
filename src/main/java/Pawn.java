@@ -34,12 +34,7 @@ public class Pawn extends Piece {
             Piece piece = square.getPiece();
 
             if (move == 8 && !board.getSquare(newPosition).isOccupied()) {
-                if (this.position == 15 && this.colour.isWhite()) {
-                    System.out.println("Promotion ready " + this.position + " " + newPosition);
-                }
-
                 if (this.colour.isPromotionSquare(newPosition)) {
-                    System.out.println("Promotion"); // TODO remove this
                     legalMoves.add(new PawnMovePromotion(new PawnMove(board, this, newPosition)));
                 }
                 else {

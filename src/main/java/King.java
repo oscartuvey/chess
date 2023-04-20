@@ -31,8 +31,7 @@ public class King extends Piece {
                 Square square = board.getSquare(newPosition);
                 if (!square.isOccupied()) {
                     legalMoves.add(new PieceMove(board, this, newPosition));
-                }
-                else {
+                } else {
                     Piece piece = square.getPiece();
                     Colour colour = piece.getColour();
                     if (this.getColour() != colour) {

@@ -28,16 +28,15 @@ public class WhitePlayer extends Player {
         List<Move> kingCastles = new ArrayList<>();
         // WHITES KING SIDE CASTLE. This class redo it
         if (this.king.isFirstMove() && !this.inCheck()) {
-            if (!this.board.getSquare(61).isOccupied() && !this.board.getSquare(63).isOccupied()) {
+            if (!this.board.getSquare(61).isOccupied() && !this.board.getSquare(62).isOccupied()) {
                 Square rookSquare = this.board.getSquare(63);
-
                 // Can compound this if statement (same applies below)
                 if (rookSquare.isOccupied() && rookSquare.getPiece().isFirstMove()) {
                     if (Player.calculateAttacksOnTile(61, opponentLegals).isEmpty() &&
                         Player.calculateAttacksOnTile(62, opponentLegals).isEmpty() &&
                         rookSquare.getPiece().getType().isRook()) {
-                        // Empty body
                     }
+
                     kingCastles.add(new CastleMoveKingSide(this.board,
                             this.king,
                             62,
