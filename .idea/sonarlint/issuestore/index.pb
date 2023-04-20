@@ -18,10 +18,6 @@ N
 src/main/java/CaptureMove.java,6/e/6e14eb3fc15a35a1a3e273005fb003cb1ce57dd2
 M
 src/main/java/CastleMove.java,0/0/005d3559486e9b7585bcae76046e9196ed048946
-U
-%src/main/java/CastleMoveKingSide.java,1/2/12a98d600b42ed2859bc2b92de4cc4de98f188ba
-V
-&src/main/java/CastleMoveQueenSide.java,8/3/835bbcf4f0daba7736d47f257646a07dfa6db4bc
 N
 src/main/java/InvalidMove.java,6/c/6c9b3be867de3f7c9c435688bd0863fc19bc0333
 W

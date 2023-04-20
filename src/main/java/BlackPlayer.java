@@ -26,6 +26,8 @@ public class BlackPlayer extends Player {
     @Override
     protected Collection<Move> calculateKingCastles(Collection<Move> playerLegals, Collection<Move> opponentLegals) {
 
+        System.out.println("Castles"); // TODO remove
+
         List<Move> kingCastles = new ArrayList<>();
         // WHITES KING SIDE CASTLE
         if (this.king.isFirstMove() && !this.inCheck()) {

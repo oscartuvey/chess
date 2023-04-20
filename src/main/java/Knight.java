@@ -30,8 +30,6 @@ public class Knight extends Piece {
                     continue; // Check break works properly
                 }
 
-
-
                 Square square = board.getSquare(newPosition);
 
                 if(!square.isOccupied()) {
