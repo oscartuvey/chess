@@ -55,6 +55,10 @@ public class ChessUI extends Application {
 
     public void updateBoard(Board board) {
 
+        Test test = new Test();
+
+        test.startTimer();
+
         GridPane root = this.getRoot();
 
         root.getChildren().clear();
@@ -80,6 +84,9 @@ public class ChessUI extends Application {
                 start(this.primaryStage);
         }
 
+        System.out.print("Board update ");
+        test.stopTimer();
+
     }
 
     public GridPane getRoot() {
@@ -102,8 +109,9 @@ public class ChessUI extends Application {
             setColour();
             setPiece(board);
 
-
             setOnMouseClicked(event -> {
+                Test testClick = new Test();
+                testClick.startTimer();
                 if (event.getButton() == MouseButton.SECONDARY) {
                     source = null;
                     destination = null;
@@ -132,9 +140,9 @@ public class ChessUI extends Application {
                         destination = null;
                         movedPiece = null;
                     }
-
                     updateBoard(board);
-
+                    System.out.print("Piece click ");
+                    testClick.stopTimer();
                 }
             });
         }
@@ -221,7 +229,7 @@ public class ChessUI extends Application {
                         Image image = new Image(filePath, RECTANGLE_WIDTH, RECTANGLE_HEIGHT, false, false);
                         this.imageView.setImage(image);
                         this.getChildren().add(this.imageView);
-                     }
+                    }
                 }
             }
         }
@@ -229,6 +237,8 @@ public class ChessUI extends Application {
         public Collection<Move> findLegalMoves(Board board) {
 
             List<Move> pieceMoves = new ArrayList<>();
+
+            System.out.println("Current player moves: " + board.currentPlayer().getLegalMoves().size());
 
             if (movedPiece != null && movedPiece.getColour() == board.currentPlayer().getColour()) {
                 for (Move move : board.getAllLegalMoves()) {

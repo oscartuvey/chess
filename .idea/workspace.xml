@@ -5,19 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="90f5d5cd-5717-4fd5-8971-9d9ce02806cb" name="Changes" comment="Further amendments.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BlackPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BlackPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CastleMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CastleMove.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ChessUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ChessUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/King.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Pawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/WhitePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/WhitePlayer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,6 +179,13 @@
       <workItem from="1681854839260" duration="36600000" />
       <workItem from="1681941573552" duration="4448000" />
       <workItem from="1681951841784" duration="22578000" />
+      <workItem from="1682085500352" duration="1286000" />
+      <workItem from="1682326897347" duration="209000" />
+      <workItem from="1682591389446" duration="1222000" />
+      <workItem from="1683192877802" duration="2594000" />
+      <workItem from="1683802990648" duration="122000" />
+      <workItem from="1683803163631" duration="101000" />
+      <workItem from="1683803303465" duration="3571000" />
     </task>
     <task id="LOCAL-00001" summary="Most backend classes completed.">
       <created>1680168536876</created>
